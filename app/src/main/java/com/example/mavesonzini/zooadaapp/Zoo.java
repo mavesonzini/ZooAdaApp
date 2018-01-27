@@ -6,12 +6,13 @@ package com.example.mavesonzini.zooadaapp;
 
 class Zoo {
     private static final Zoo ourInstance = new Zoo();
+    public ZooKeeper[] zooKeepers;
 
     static Zoo getInstance() {
         return ourInstance;
     }
 
     private Zoo() {
-        ZooKeeper.getAllZookeepers();
+        zooKeepers = ZooKeeper.getAllZookeepers();
     }
 }
