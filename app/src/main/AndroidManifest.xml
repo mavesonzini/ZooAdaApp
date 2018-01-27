@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ZooKeepersList" />
-        <activity android:name=".ZooKeeperDetail"></activity>
+        <activity android:name=".ZooKeeperDetails"></activity>
     </application>
 
 </manifest>

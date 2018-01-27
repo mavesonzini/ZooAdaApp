@@ -1,5 +1,6 @@
 package com.example.mavesonzini.zooadaapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,8 @@ public class ZooKeepersList extends AppCompatActivity {
 
     private ListView listView;
     private ZooKeeper[] zooKeepers;
+    private static int selectedItemPosition = 0;
+    private static ZooKeeper item = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +41,24 @@ public class ZooKeepersList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int itemPosition = position;
                 ZooKeeper itemValue = (ZooKeeper) listView.getItemAtPosition(position);
+                item = itemValue;
+                selectedItemPosition = itemPosition;
 
                 Toast.makeText(getApplicationContext(),
                         "Position: " + itemPosition + " list item: " + itemValue, Toast.LENGTH_LONG)
                         .show();
+
+                Intent intent = new Intent(ZooKeepersList.this, ZooKeeperDetails.class);
+                startActivity(intent);
             }
         });
+    }
+
+    public static int getSelectedItemPosition() {
+        return selectedItemPosition;
+    }
+
+    public static ZooKeeper getItemFromSelectedPosition(){
+        return item;
     }
 }
