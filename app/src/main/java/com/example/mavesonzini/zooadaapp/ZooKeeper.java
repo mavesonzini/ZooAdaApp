@@ -35,4 +35,8 @@ public class ZooKeeper {
     public String toString() {
         return this.name;
     }
+
+    public String[] getPenTypes(){
+        return this.penTypes;
+    }
 }

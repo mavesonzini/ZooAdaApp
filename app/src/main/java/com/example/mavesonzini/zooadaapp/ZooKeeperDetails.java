@@ -4,14 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class ZooKeeperDetails extends AppCompatActivity {
 
     private TextView nameLabel;
     private TextView detailsLabel;
     private ZooKeeper[] zooKeepers;
     private String zookeeperName;
+    private String[] zookeeperPenTypesArray = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +22,20 @@ public class ZooKeeperDetails extends AppCompatActivity {
 
         nameLabel.setText(getNameFromSelectedRow());
 
+        getPenTypesForZookeeper();
     }
 
     public String getNameFromSelectedRow() {
         zookeeperName = ZooKeepersList.getItemFromSelectedPosition().toString();
-
         return zookeeperName;
     }
 
+    public void getPenTypesForZookeeper() {
+        zookeeperPenTypesArray = ZooKeepersList.getItemFromSelectedPosition().getPenTypes();
+        String penTypes = "";
+        for (int i = 0; i < zookeeperPenTypesArray.length; i++) {
+            penTypes = penTypes + zookeeperPenTypesArray[i].toString() + "\n";
+        }
+        detailsLabel.setText(penTypes);
+    }
 }

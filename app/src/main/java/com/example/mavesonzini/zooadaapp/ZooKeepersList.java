@@ -9,8 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.List;
-
 public class ZooKeepersList extends AppCompatActivity {
 
     private ListView listView;
