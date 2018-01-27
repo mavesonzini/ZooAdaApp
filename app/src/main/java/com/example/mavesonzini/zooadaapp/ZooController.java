@@ -10,6 +10,7 @@ import android.widget.Button;
 public class ZooController extends AppCompatActivity {
 
     Button zookeepersButton;
+    Button pensButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,16 @@ public class ZooController extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ZooController.this, ZooKeepersList.class);
+                startActivity(intent);
+            }
+        });
+
+        pensButton = findViewById(R.id.pens_button);
+
+        pensButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ZooController.this, PensList.class);
                 startActivity(intent);
             }
         });

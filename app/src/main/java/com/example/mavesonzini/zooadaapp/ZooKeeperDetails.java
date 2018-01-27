@@ -8,7 +8,6 @@ public class ZooKeeperDetails extends AppCompatActivity {
 
     private TextView nameLabel;
     private TextView detailsLabel;
-    private ZooKeeper[] zooKeepers;
     private String zookeeperName;
     private String[] zookeeperPenTypesArray = {};
 

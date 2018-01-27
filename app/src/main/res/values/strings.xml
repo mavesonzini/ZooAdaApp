@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ZooAdaApp</string>
+    <string name="title_activity_pens_list">PensList</string>
+    <string name="create_pen_button">CREATE!</string>
+    <string name="dry_area_textfield">Dry Area in m2</string>
+    <string name="wet_area_textfield">Wet Area in m2</string>
+    <string name="volume_in_m3">volume_area_textfield</string>
 </resources>

@@ -22,8 +22,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="147dp"
         android:layout_marginTop="106dp"
-        android:text="Button"
+        android:text="ZOOKEEPERS"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_label" />
+
+    <Button
+        android:id="@+id/pens_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="52dp"
+        android:text="PENS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zookeepers_button" />
 
 </android.support.constraint.ConstraintLayout>

@@ -17,7 +17,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".ZooKeepersList" />
-        <activity android:name=".ZooKeeperDetails"></activity>
+        <activity android:name=".ZooKeeperDetails" />
+        <activity
+            android:name=".PensList"
+            android:label="@string/title_activity_pens_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".PensForm"></activity>
     </application>
 
 </manifest>
