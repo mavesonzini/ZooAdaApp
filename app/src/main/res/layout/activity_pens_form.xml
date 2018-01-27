@@ -13,7 +13,7 @@
         android:layout_marginStart="62dp"
         android:layout_marginTop="31dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/volume_" />
+        app:layout_constraintTop_toBottomOf="@+id/wet_area_textfield" />
 
     <Spinner
         android:id="@+id/pen_type_spinner"
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
+        android:id="@+id/dry_area_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
@@ -37,24 +37,24 @@
         app:layout_constraintTop_toBottomOf="@+id/pen_type_spinner" />
 
     <AutoCompleteTextView
-        android:id="@+id/volume_"
+        android:id="@+id/wet_area_textfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/volume_in_m3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/volume_area_textfield" />
+
+    <AutoCompleteTextView
+        android:id="@+id/volume_area_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="20dp"
         android:text="@string/wet_area_textfield"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteTextView3" />
-
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="21dp"
-        android:text="@string/volume_in_m3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/dry_area_textfield" />
 
     <Button
         android:id="@+id/create_pen_button"

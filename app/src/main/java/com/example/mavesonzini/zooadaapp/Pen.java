@@ -18,23 +18,4 @@ public class Pen {
         this.volume = volume;
         this.zookeeper = zooKeeper;
     }
-
-
-    public class PenType {
-        private String penTypeName;
-
-        public PenType(String penTypeName) {
-            this.penTypeName = penTypeName;
-        }
-        public PenType[] getAllPenTypes() {
-            PenType dryPen = new PenType("Dry Pen");
-            PenType aquarium =  new PenType("Aquarium");
-            PenType partWaterPartDry = new PenType("Part water - part dry");
-            PenType aviary = new PenType("Aviary");
-            PenType pettingPen = new PenType("Petting pen");
-
-            PenType[] penTypes = {dryPen, aquarium, partWaterPartDry, aviary, pettingPen};
-            return penTypes;
-        }
-    }
 }

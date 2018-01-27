@@ -13,7 +13,6 @@ public class ZooKeepersList extends AppCompatActivity {
 
     private ListView listView;
     private ZooKeeper[] zooKeepers;
-    private static int selectedItemPosition = 0;
     private static ZooKeeper item = null;
 
     @Override
@@ -27,7 +26,7 @@ public class ZooKeepersList extends AppCompatActivity {
         zooKeepers = Zoo.getInstance().zooKeepers;
 
         //Define new adapter
-        ArrayAdapter<ZooKeeper> adapter = new ArrayAdapter<ZooKeeper>(this,
+        ArrayAdapter<ZooKeeper> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, zooKeepers);
 
         //Assign adapter to listView
@@ -40,7 +39,6 @@ public class ZooKeepersList extends AppCompatActivity {
                 int itemPosition = position;
                 ZooKeeper itemValue = (ZooKeeper) listView.getItemAtPosition(position);
                 item = itemValue;
-                selectedItemPosition = itemPosition;
 
                 Toast.makeText(getApplicationContext(),
                         "Position: " + itemPosition + " list item: " + itemValue, Toast.LENGTH_LONG)
@@ -50,10 +48,6 @@ public class ZooKeepersList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    public static int getSelectedItemPosition() {
-        return selectedItemPosition;
     }
 
     public static ZooKeeper getItemFromSelectedPosition(){
