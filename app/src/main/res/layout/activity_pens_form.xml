@@ -8,61 +8,146 @@
 
     <Spinner
         android:id="@+id/zookeeper_spinner"
-        android:layout_width="265dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="31dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/zookeeper_label"
         app:layout_constraintTop_toBottomOf="@+id/wet_area_textfield" />
 
     <Spinner
         android:id="@+id/pen_type_spinner"
-        android:layout_width="264dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="46dp"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/pen_type_label"
         app:layout_constraintTop_toTopOf="parent" />
 
     <AutoCompleteTextView
         android:id="@+id/dry_area_textfield"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="13dp"
-        android:text="@string/dry_area_textfield"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dry_area_label"
         app:layout_constraintTop_toBottomOf="@+id/pen_type_spinner" />
 
     <AutoCompleteTextView
         android:id="@+id/wet_area_textfield"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/volume_in_m3"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/volume_label"
         app:layout_constraintTop_toBottomOf="@+id/volume_area_textfield" />
 
     <AutoCompleteTextView
         android:id="@+id/volume_area_textfield"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
+        android:layout_width="100dp"
+        android:layout_height="47dp"
         android:layout_marginTop="20dp"
-        android:text="@string/wet_area_textfield"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/wet_area_label"
         app:layout_constraintTop_toBottomOf="@+id/dry_area_textfield" />
 
     <Button
         android:id="@+id/create_pen_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="60dp"
         android:layout_marginStart="159dp"
-        android:layout_marginTop="69dp"
         android:text="@string/create_pen_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/dry_area_label"
+        android:layout_width="92dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="45dp"
+        android:text="Dry area "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zookeeper_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/pen_type_label" />
+
+    <TextView
+        android:id="@+id/wet_area_label"
+        android:layout_width="96dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="45dp"
+        android:text="Wet area"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dry_area_label" />
+
+    <TextView
+        android:id="@+id/volume_label"
+        android:layout_width="83dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="45dp"
+        android:text="Volume"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wet_area_label" />
+
+    <TextView
+        android:id="@+id/pen_type_label"
+        android:layout_width="54dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="52dp"
+        android:text="Pen type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/zookeeper_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="45dp"
+        android:text="Zookeeper"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/volume_label" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="44dp"
+        android:text="m2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="45dp"
+        android:text="m3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:text="m3" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="118dp"
+        android:text="m2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

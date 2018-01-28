@@ -5,4 +5,7 @@
     <string name="dry_area_textfield">Dry Area in m2</string>
     <string name="wet_area_textfield">Wet Area in m2</string>
     <string name="volume_in_m3">volume_area_textfield</string>
+    <string name="dry_area_label">dry_area_label</string>
+    <string name="wet_area_label">wet_area_label</string>
+    <string name="volume_label">volume_label</string>
 </resources>
