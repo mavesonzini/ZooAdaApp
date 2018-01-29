@@ -11,11 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toEndOf="@+id/zookeeper_label"
-        app:layout_constraintTop_toBottomOf="@+id/wet_area_textfield" />
+        app:layout_constraintTop_toBottomOf="@+id/wet_area_editText" />
 
     <Spinner
         android:id="@+id/pen_type_spinner"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <AutoCompleteTextView
-        android:id="@+id/dry_area_textfield"
+        android:id="@+id/dry_area_editText"
         android:layout_width="100dp"
         android:layout_height="42dp"
         android:layout_marginTop="12dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/pen_type_spinner" />
 
     <AutoCompleteTextView
-        android:id="@+id/wet_area_textfield"
+        android:id="@+id/wet_area_editText"
         android:layout_width="100dp"
         android:layout_height="48dp"
         android:layout_marginEnd="33dp"
@@ -48,17 +48,17 @@
         app:layout_constraintEnd_toStartOf="@+id/textView8"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/volume_label"
-        app:layout_constraintTop_toBottomOf="@+id/volume_area_textfield" />
+        app:layout_constraintTop_toBottomOf="@+id/volume_area_editText" />
 
     <AutoCompleteTextView
-        android:id="@+id/volume_area_textfield"
+        android:id="@+id/volume_area_editText"
         android:layout_width="100dp"
         android:layout_height="47dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/wet_area_label"
-        app:layout_constraintTop_toBottomOf="@+id/dry_area_textfield" />
+        app:layout_constraintTop_toBottomOf="@+id/dry_area_editText" />
 
     <Button
         android:id="@+id/create_pen_button"

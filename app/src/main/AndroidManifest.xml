@@ -23,7 +23,8 @@
             android:label="@string/title_activity_pens_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".PensForm"></activity>
+        <activity android:name=".PensForm" />
+        <activity android:name=".PenDetails"></activity>
     </application>
 
 </manifest>
