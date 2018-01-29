@@ -7,7 +7,7 @@ import java.util.UUID;
  */
 
 public class Pen {
-    private UUID penId;
+    private static UUID penId;
     private PenType penType;
     private double dryArea;
     private double wetArea;
@@ -26,5 +26,25 @@ public class Pen {
     @Override
     public String toString() {
         return this.penType.toString();
+    }
+    
+    public String getDryArea() {
+        return String.valueOf(dryArea);
+    }
+
+    public String getWetArea() {
+        return String.valueOf(wetArea);
+    }
+
+    public String getVolume() {
+        return String.valueOf(volume);
+    }
+
+    public String getZookeeper() {
+        return this.zookeeper.toString();
+    }
+
+    public static UUID getPenId() {
+        return penId;
     }
 }
