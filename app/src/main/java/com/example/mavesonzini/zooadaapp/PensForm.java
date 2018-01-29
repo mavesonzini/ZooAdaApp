@@ -14,6 +14,8 @@ public class PensForm extends AppCompatActivity {
     private ZooKeeper[] zooKeepers;
     private Spinner penTypeSpinner;
     private Spinner zookeeperSpinner;
+    private String penTypeString;
+    private String zookeeperString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,12 @@ public class PensForm extends AppCompatActivity {
         penTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-
+                int itemPosition = position;
+                PenType itemValue = (PenType) penTypeSpinner.getItemAtPosition(position);
+                penTypeString =  itemValue.toString();
+                Toast.makeText(getApplicationContext(),
+                        "Position: " + itemPosition + " item selected: " + penTypeString, Toast.LENGTH_LONG)
+                        .show();
             }
 
             @Override
@@ -53,8 +60,13 @@ public class PensForm extends AppCompatActivity {
 
         zookeeperSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                int itemPosition = position;
+                ZooKeeper itemValue = (ZooKeeper) zookeeperSpinner.getItemAtPosition(position);
+                zookeeperString =  itemValue.toString();
+                Toast.makeText(getApplicationContext(),
+                        "Position: " + itemPosition + " item selected: " + zookeeperString, Toast.LENGTH_LONG)
+                        .show();
             }
 
             @Override
