@@ -1,7 +1,5 @@
 package com.example.mavesonzini.zooadaapp;
 
-import java.util.List;
-
 /**
  * Created by mavesonzini on 26/01/2018.
  */

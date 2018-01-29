@@ -62,10 +62,4 @@ public class PenDetails extends AppCompatActivity {
         zookeeperAssigned = PensList.getItemFromSelectedPosition().getZookeeper();
         return zookeeperAssigned;
     }
-
-    public Pen getPenById(UUID uuid) {
-        uuid = Pen.getPenId();
-        Pen pen = Zoo.getInstance().getPenById(uuid);
-        return pen;
-    }
 }
