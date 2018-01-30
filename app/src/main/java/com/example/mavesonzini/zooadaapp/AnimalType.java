@@ -13,7 +13,7 @@ public class AnimalType {
     private double volume;
     private Pen assignedPen;
 
-    public AnimalType(String animalTypeName, @Nullable PenType penType, double area,  double volume,  Pen assignedPen){
+    public AnimalType(String animalTypeName, @Nullable PenType penType, double area, double volume,  @Nullable Pen assignedPen){
         this.animalTypeName = animalTypeName;
         this.penType = penType;
         this.area = area;
@@ -30,8 +30,9 @@ public class AnimalType {
         AnimalType dolphin = new AnimalType("Dolphin", PenType.getAquarium(), 0.0, 40.0, null);
         AnimalType hippo = new AnimalType("Hippo", PenType.getPartWaterPartDry(), 10.0, 20.0, null);
         AnimalType cat = new AnimalType("Cat", PenType.getPetting(), 4.0, 0.0, null);
+        AnimalType other = new AnimalType("Other...", null, 0.0, 0.0, null);
 
-        AnimalType[] animalTypes = {sloth, penguin, goat, dog, owl, dolphin, hippo, cat};
+        AnimalType[] animalTypes = {sloth, penguin, goat, dog, owl, dolphin, hippo, cat, other};
 
         return animalTypes;
     }

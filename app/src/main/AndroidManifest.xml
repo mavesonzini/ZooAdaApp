@@ -24,7 +24,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity" />
         <activity android:name=".PensForm" />
-        <activity android:name=".PenDetails"></activity>
+        <activity android:name=".PenDetails" />
+        <activity android:name=".AnimalController"></activity>
     </application>
 
 </manifest>
