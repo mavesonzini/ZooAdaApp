@@ -9,4 +9,20 @@
     <string name="wet_area_label">wet_area_label</string>
     <string name="volume_label">volume_label</string>
     <string name="title_activity_animals_list">AnimalsList</string>
+    <string name="is_hostile_label">Is hostile?</string>
+    <string name="can_be_petted_label">Can be petted?</string>
+    <string name="pen_assigned_label">Pen assigned</string>
+    <string name="volume_peranimal_label">Volume</string>
+    <string name="area_peranimal_label">Area</string>
+    <string name="pen_type_label">Pen type</string>
+    <string name="animal_type_label">Animal type</string>
+    <string name="m2_label">m2</string>
+    <string name="m3_label">m3</string>
+    <string name="create_animal_button">CREATE</string>
+    <string name="this_animal_can_be_petted">This animal can be petted?:</string>
+    <string name="needs_a_volume_of">Needs a volume of:</string>
+    <string name="is_assigned_to">Is assigned to:</string>
+    <string name="needs_and_area_of">Needs and area of:</string>
+    <string name="lives_in">Lives in:</string>
+    <string name="animal_name">Animal name:</string>
 </resources>

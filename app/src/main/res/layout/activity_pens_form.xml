@@ -25,7 +25,7 @@
         android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/pen_type_label"
+        app:layout_constraintStart_toEndOf="@+id/label2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <AutoCompleteTextView
@@ -78,7 +78,7 @@
         android:layout_marginTop="45dp"
         android:text="Dry area "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pen_type_label" />
+        app:layout_constraintTop_toBottomOf="@+id/label2" />
 
     <TextView
         android:id="@+id/wet_area_label"
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/wet_area_label" />
 
     <TextView
-        android:id="@+id/pen_type_label"
+        android:id="@+id/label2"
         android:layout_width="54dp"
         android:layout_height="19dp"
         android:layout_marginStart="50dp"

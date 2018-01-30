@@ -36,4 +36,10 @@ public class AnimalType {
 
         return animalTypes;
     }
+
+
+    @Override
+    public String toString() {
+        return this.animalTypeName;
+    }
 }

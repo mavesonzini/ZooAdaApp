@@ -11,6 +11,7 @@ public class ZooController extends AppCompatActivity {
 
     Button zookeepersButton;
     Button pensButton;
+    Button animalsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,16 @@ public class ZooController extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ZooController.this, PensList.class);
+                startActivity(intent);
+            }
+        });
+
+        animalsButton = findViewById(R.id.animals_button);
+
+        animalsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent(ZooController.this, AnimalsList.class);
                 startActivity(intent);
             }
         });
