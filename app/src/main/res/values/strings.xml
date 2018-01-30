@@ -8,4 +8,5 @@
     <string name="dry_area_label">dry_area_label</string>
     <string name="wet_area_label">wet_area_label</string>
     <string name="volume_label">volume_label</string>
+    <string name="title_activity_animals_list">AnimalsList</string>
 </resources>
