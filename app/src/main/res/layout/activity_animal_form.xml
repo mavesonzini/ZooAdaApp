@@ -39,7 +39,6 @@
         android:layout_marginEnd="50dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/land_peranimal_text_view"
         app:layout_constraintTop_toTopOf="parent" />
 
     <AutoCompleteTextView
@@ -66,10 +65,10 @@
         android:id="@+id/land_peranimal_text_view"
         android:layout_width="107dp"
         android:layout_height="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintStart_toStartOf="@+id/water_peranimal_text_view2"
-        app:layout_constraintTop_toBottomOf="@+id/animal_type_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/name_edit_text" />
 
     <Button
         android:id="@+id/create_animal_button"
@@ -86,7 +85,7 @@
         android:layout_width="68dp"
         android:layout_height="22dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:text="@string/is_hostile_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label6" />
@@ -95,7 +94,7 @@
         android:id="@+id/label6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="35dp"
         android:text="@string/can_be_petted_label"
         app:layout_constraintEnd_toEndOf="@+id/label7"
         app:layout_constraintTop_toBottomOf="@+id/label5" />
@@ -122,10 +121,10 @@
         android:id="@+id/label3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="28dp"
         android:text="@string/land"
         app:layout_constraintEnd_toEndOf="@+id/label4"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
 
     <TextView
         android:id="@+id/label1"
@@ -134,7 +133,6 @@
         android:layout_marginStart="75dp"
         android:layout_marginTop="40dp"
         android:text="@string/animal_type_label"
-        app:layout_constraintEnd_toEndOf="@+id/textView22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -142,40 +140,35 @@
         android:id="@+id/m3_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="37dp"
         android:text="@string/m3_label"
-        app:layout_constraintEnd_toEndOf="@+id/can_pet_spinner"
+        app:layout_constraintEnd_toEndOf="@+id/m3_label3"
+        app:layout_constraintStart_toEndOf="@+id/air_peranimal_text_view"
         app:layout_constraintTop_toBottomOf="@+id/m3_label3" />
 
     <TextView
         android:id="@+id/m3_label3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="30dp"
         android:text="@string/m3_label"
-        app:layout_constraintEnd_toEndOf="@+id/m3_label"
+        app:layout_constraintEnd_toEndOf="@+id/m3_label2"
+        app:layout_constraintStart_toEndOf="@+id/water_peranimal_text_view2"
         app:layout_constraintTop_toBottomOf="@+id/m3_label2" />
 
     <TextView
         android:id="@+id/m3_label2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="15dp"
         android:text="@string/m2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:text="@string/animal_requirements"
-        app:layout_constraintEnd_toEndOf="@+id/label3"
-        app:layout_constraintTop_toBottomOf="@+id/label1" />
+        app:layout_constraintStart_toEndOf="@+id/land_peranimal_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/name_edit_text" />
 
     <TextView
         android:id="@+id/textView23"
@@ -185,4 +178,21 @@
         android:text="@string/air_space"
         app:layout_constraintEnd_toEndOf="@+id/label5"
         app:layout_constraintTop_toBottomOf="@+id/label4" />
+
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="Name: "
+        app:layout_constraintEnd_toEndOf="@+id/label1"
+        app:layout_constraintTop_toBottomOf="@+id/label1" />
+
+    <AutoCompleteTextView
+        android:id="@+id/name_edit_text"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@+id/animal_type_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/animal_type_spinner" />
 </android.support.constraint.ConstraintLayout>

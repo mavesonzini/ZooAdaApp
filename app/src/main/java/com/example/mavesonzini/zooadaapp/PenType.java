@@ -17,8 +17,9 @@ public class PenType {
             PenType partWaterPartDry = new PenType("Part water - part dry");
             PenType aviary = new PenType("Aviary");
             PenType pettingPen = new PenType("Petting pen");
+            PenType empty = new PenType(null);
 
-            PenType[] penTypes = {dryPen, aquarium, partWaterPartDry, aviary, pettingPen};
+            PenType[] penTypes = {empty, dryPen, aquarium, partWaterPartDry, aviary, pettingPen};
             return penTypes;
         }
 

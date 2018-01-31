@@ -9,8 +9,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,8 +28,10 @@ public class AnimalForm extends AppCompatActivity {
     private AutoCompleteTextView landEditText;
     private AutoCompleteTextView waterEditText;
     private AutoCompleteTextView airEditText;
+    private AutoCompleteTextView nameEditText;
 
     private Button createAnimalButton;
+    private TextView nameLabel;
 
     private String animalTypeString;
     private String penAssignedString;
@@ -63,6 +67,8 @@ public class AnimalForm extends AppCompatActivity {
         hostilitySpinner = findViewById(R.id.hostile_spinner);
         penAssignedSpinner = findViewById(R.id.pen_assigned_spinner);
         createAnimalButton = findViewById(R.id.create_animal_button);
+        nameEditText = findViewById(R.id.name_edit_text);
+        nameLabel = findViewById(R.id.name_label);
 
         //Set Adapters for animalType type, penType, petting and hostility spinners
         ArrayAdapter<AnimalType> animalTypeArrayAdapter = new ArrayAdapter<>(this,
@@ -99,6 +105,10 @@ public class AnimalForm extends AppCompatActivity {
                         .show();
 
                 if (itemValue.getAnimalTypeEnum() != AnimalTypeEnum.OTHER ){
+                    //Hide name label and editText
+                    nameLabel.setVisibility(View.GONE);
+                    nameEditText.setVisibility(View.GONE);
+
                     //disable all spinners
                     pettingSpinner.setEnabled(false);
                     pettingSpinner.setEnabled(false);
@@ -117,6 +127,9 @@ public class AnimalForm extends AppCompatActivity {
                     pettingSpinner.setSelection(isPet);
                     hostilitySpinner.setSelection(isHostileIndex);
                 } else {
+                    //show name label and editText
+                    nameLabel.setVisibility(View.VISIBLE);
+                    nameEditText.setVisibility(View.VISIBLE);
 
                     //enable all spinners and txt fields
                     pettingSpinner.setEnabled(true);
