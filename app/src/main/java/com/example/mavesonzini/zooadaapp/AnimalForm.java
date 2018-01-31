@@ -112,12 +112,24 @@ public class AnimalForm extends AppCompatActivity {
                     waterEditText.setText(itemValue.getWater());
                     airEditText.setText(itemValue.getAir());
 
-                    String string = itemValue.getIsPet();
                     int isPet = Arrays.asList(boolOptionsArray).indexOf(itemValue.getIsPet());
-                    System.out.print(string);
                     int isHostileIndex = Arrays.asList(boolOptionsArray).indexOf(itemValue.getIsHostile());
                     pettingSpinner.setSelection(isPet);
                     hostilitySpinner.setSelection(isHostileIndex);
+                } else {
+
+                    //enable all spinners and txt fields
+                    pettingSpinner.setEnabled(true);
+                    pettingSpinner.setEnabled(true);
+                    hostilitySpinner.setEnabled(true);
+                    landEditText.setEnabled(true);
+                    waterEditText.setEnabled(true);
+                    airEditText.setEnabled(true);
+
+                    //empty text fields
+                    landEditText.setText(null);
+                    waterEditText.setText(null);
+                    airEditText.setText(null);
                 }
             }
 
