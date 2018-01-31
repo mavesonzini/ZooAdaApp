@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mavesonzini.zooadaapp.AnimalDetails">
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/animal_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/needs_land"
+        app:layout_constraintStart_toStartOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/m2_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/m3_label"
+        app:layout_constraintEnd_toEndOf="@+id/textView26"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/m3_label"
+        app:layout_constraintEnd_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/needs_water"
+        app:layout_constraintStart_toStartOf="@+id/textView24"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/is_assigned_to"
+        app:layout_constraintStart_toStartOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/this_animal_can_be_petted"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/animal_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginTop="16dp"
+        android:text="@android:string/paste_as_plain_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/animal_area_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@android:string/paste_as_plain_text"
+        app:layout_constraintEnd_toEndOf="@+id/animal_volume_label"
+        app:layout_constraintTop_toBottomOf="@+id/animal_name_label" />
+
+    <TextView
+        android:id="@+id/animal_volume_label"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginTop="20dp"
+        android:text="@android:string/paste_as_plain_text"
+        app:layout_constraintEnd_toEndOf="@+id/air_peranimal_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/animal_area_label" />
+
+    <TextView
+        android:id="@+id/animal_assigned_pen_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@android:string/paste_as_plain_text"
+        app:layout_constraintEnd_toEndOf="@+id/animal_pet_label"
+        app:layout_constraintTop_toBottomOf="@+id/air_peranimal_text_view" />
+
+    <TextView
+        android:id="@+id/animal_pet_label"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginTop="20dp"
+        android:text="@android:string/paste_as_plain_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animal_assigned_pen_label" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/needs_space_to_fly"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/air_peranimal_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@android:string/paste_as_plain_text"
+        app:layout_constraintEnd_toEndOf="@+id/animal_assigned_pen_label"
+        app:layout_constraintTop_toBottomOf="@+id/animal_volume_label" />
+
+</android.support.constraint.ConstraintLayout>

@@ -9,19 +9,19 @@ import java.util.UUID;
 public class Animal {
     private static UUID animalId;
     private AnimalType animalType;
-    private PenType penType;
-    private double area;
-    private double volume;
+    private double land;
+    private double water;
+    private double air;
     private PenType penAssigned;
     private boolean isPet;
     private boolean isHostile;
 
-    public Animal(UUID animalId, AnimalType animalType, PenType penType, double area, double volume, PenType penAssigned, boolean isPet, boolean isHostile) {
+    public Animal(UUID animalId, AnimalType animalType, double land, double water, double air, PenType penAssigned, boolean isPet, boolean isHostile) {
         this.animalId = animalId;
         this.animalType = animalType;
-        this.penType = penType;
-        this.area = area;
-        this.volume = volume;
+        this.land = land;
+        this.water = water;
+        this.air = air;
         this.penAssigned = penAssigned;
         this.isPet = isPet;
         this.isHostile = isHostile;
@@ -31,20 +31,19 @@ public class Animal {
         return this.animalType.toString();
     }
 
-    public String getPenType() {
-        return this.penType.toString();
-    }
-
     public String getAssignedPen() {
         return this.penAssigned.toString();
     }
 
-    public String getVolume() {
-        return String.valueOf(volume);
+    public String getWater() {
+        return String.valueOf(water);
     }
 
-    public String getArea() {
-        return String.valueOf(area);
+    public String getLand() {
+        return String.valueOf(land);
+    }
+    public String getAir() {
+        return String.valueOf(air);
     }
 
     public String getIsPet(){

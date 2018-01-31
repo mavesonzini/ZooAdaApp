@@ -1,5 +1,6 @@
 package com.example.mavesonzini.zooadaapp;
 
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -8,17 +9,17 @@ import org.w3c.dom.Text;
 
 public class AnimalDetails extends AppCompatActivity {
     private TextView animalNameTextView;
-    private TextView penTypeTextView;
-    private TextView areaTextView;
-    private TextView volumeTextView;
+    private TextView landTextView;
+    private TextView waterTextView;
+    private TextView airTextView;
     private TextView penAssignedTextView;
     private TextView pettingTextView;
 
     private String animalName;
-    private String penType;
-    private String area;
-    private String volume;
-    private String asiignedPen;
+    private String land;
+    private String water;
+    private String air;
+    private String assignedPen;
     private String petting;
 
     @Override
@@ -27,43 +28,43 @@ public class AnimalDetails extends AppCompatActivity {
         setContentView(R.layout.activity_animal_details);
 
         animalNameTextView = findViewById(R.id.animal_name_label);
-        penTypeTextView = findViewById(R.id.animal_lives_in_pen_label);
-        areaTextView = findViewById(R.id.animal_area_label);
-        volumeTextView = findViewById(R.id.animal_volume_label);
+        landTextView = findViewById(R.id.animal_area_label);
+        waterTextView = findViewById(R.id.animal_volume_label);
+        airTextView = findViewById(R.id.air_peranimal_text_view);
         penAssignedTextView = findViewById(R.id.animal_assigned_pen_label);
         pettingTextView = findViewById(R.id.animal_pet_label);
 
         animalNameTextView.setText(getAnimalNameFromSelectedRow());
-        penTypeTextView.setText(getPenTypeFromSelectedRow());
-        areaTextView.setText(getAreaFromSelectedRow());
-        volumeTextView.setText(getVolumeFromSelectedRow());
-        penAssignedTextView.setText(getAsiignedPenFromSelectedRow());
+        landTextView.setText(getAreaFromSelectedRow());
+        waterTextView.setText(getVolumeFromSelectedRow());
+        airTextView.setText(getAirFromSelectedRow());
+        penAssignedTextView.setText(getAssignedPenFromSelectedRow());
         pettingTextView.setText(getPettingFromSelectedRow());
     }
 
     public String getAnimalNameFromSelectedRow() {
         animalName = AnimalsList.getItemFromSelectedPosition().toString();
-        return penType;
-    }
-
-    public String getPenTypeFromSelectedRow() {
-        penType = AnimalsList.getItemFromSelectedPosition().getPenType();
-        return penType;
+        return animalName;
     }
 
     public String getAreaFromSelectedRow() {
-        area =  AnimalsList.getItemFromSelectedPosition().getArea();
-        return area;
+        land =  AnimalsList.getItemFromSelectedPosition().getLand();
+        return land;
     }
 
     public String getVolumeFromSelectedRow() {
-        volume = AnimalsList.getItemFromSelectedPosition().getVolume();
-        return volume;
+        water = AnimalsList.getItemFromSelectedPosition().getWater();
+        return water;
     }
 
-    public String getAsiignedPenFromSelectedRow() {
-        asiignedPen = AnimalsList.getItemFromSelectedPosition().getAssignedPen();
-        return asiignedPen;
+    public String getAirFromSelectedRow() {
+        air = AnimalsList.getItemFromSelectedPosition().getAir();
+        return air;
+    }
+
+    public String getAssignedPenFromSelectedRow() {
+        assignedPen = AnimalsList.getItemFromSelectedPosition().getAssignedPen();
+        return assignedPen;
     }
 
     public String getPettingFromSelectedRow() {

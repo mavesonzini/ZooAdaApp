@@ -123,7 +123,7 @@ public class PensForm extends AppCompatActivity {
         if (!validate()) {
             Toast.makeText(this, "Don't leave areas empty!", Toast.LENGTH_SHORT).show();
         }
-        newPen = new Pen(penId, selectedPen, dryAreaDouble, wetAreaDouble, volumeDouble, selectedZookeeper);
+//        newPen = new Pen(penId, selectedPen, dryAreaDouble, wetAreaDouble, volumeDouble, selectedZookeeper);
 
         Zoo zooInstance = Zoo.getInstance();
         zooInstance.addPen(newPen);

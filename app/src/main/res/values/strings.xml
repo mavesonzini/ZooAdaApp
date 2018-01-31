@@ -25,4 +25,13 @@
     <string name="needs_and_area_of">Needs and area of:</string>
     <string name="lives_in">Lives in:</string>
     <string name="animal_name">Animal name:</string>
+    <string name="m2">m2</string>
+    <string name="air_space">Air space</string>
+    <string name="animal_requirements">Animal requirements:</string>
+    <string name="land">Land</string>
+    <string name="water">Water</string>
+    <string name="space_to_fly">TextView</string>
+    <string name="needs_space_to_fly">Needs space to fly:</string>
+    <string name="needs_water">Needs water:</string>
+    <string name="needs_land">Needs land:</string>
 </resources>

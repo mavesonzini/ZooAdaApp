@@ -9,14 +9,16 @@ import java.util.UUID;
 public class Pen {
     private static UUID penId;
     private PenType penType;
+    private int capacity;
     private double dryArea;
     private double wetArea;
     private double volume;
     private ZooKeeper zookeeper;
 
-    public Pen(UUID penId, PenType penType, double dryArea, double wetArea, double  volume, ZooKeeper zooKeeper) {
+    public Pen(UUID penId, PenType penType, int capacity, double dryArea, double wetArea, double  volume, ZooKeeper zooKeeper) {
         this.penId = penId;
         this.penType = penType;
+        this.capacity = capacity;
         this.dryArea = dryArea;
         this.wetArea = wetArea;
         this.volume = volume;
@@ -26,6 +28,10 @@ public class Pen {
     @Override
     public String toString() {
         return this.penType.toString();
+    }
+
+    public String getCapacity() {
+        return String.valueOf(capacity);
     }
     
     public String getDryArea() {

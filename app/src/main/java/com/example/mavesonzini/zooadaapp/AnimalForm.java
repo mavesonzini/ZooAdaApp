@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -16,27 +15,26 @@ import java.util.UUID;
 
 public class AnimalForm extends AppCompatActivity {
     private Spinner animaltypeSpinner;
-    private Spinner penTypeSpinner;
     private Spinner pettingSpinner;
     private Spinner hostilitySpinner;
     private Spinner penAssignedSpinner;
 
-    private AutoCompleteTextView areaEditText;
-    private AutoCompleteTextView volumeEditText;
+    private AutoCompleteTextView landEditText;
+    private AutoCompleteTextView waterEditText;
+    private AutoCompleteTextView airEditText;
 
     private Button createAnimalButton;
 
     private String animalTypeString;
-    private String penTypeString;
     private String penAssignedString;
 
     private AnimalType selectedAnimalType;
-    private PenType selectedPenType;
     private PenType selectedAssignedPenType;
     private boolean selectedPettingOption;
     private boolean selectedHostileOption;
-    private double selectedArea;
-    private double selectedVolume;
+    private double selectedLand;
+    private double selectedWater;
+    private double selectedAir;
 
     private AnimalType[] animalTypes = AnimalType.getAllAnimalTypes();
     private PenType[] penTypes = PenType.getAllPenTypes();
@@ -44,10 +42,9 @@ public class AnimalForm extends AppCompatActivity {
 
     private Animal newAnimal;
     private UUID animalId;
-    private String areaString;
-    private String volumeString;
-    private Double areaDouble;
-    private Double volumeDouble;
+    private String landString;
+    private String waterString;
+    private String airString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +52,9 @@ public class AnimalForm extends AppCompatActivity {
         setContentView(R.layout.activity_animal_form);
 
         animaltypeSpinner = findViewById(R.id.animal_type_spinner);
-        penTypeSpinner = findViewById(R.id.penType_spinner);
-        areaEditText = findViewById(R.id.area_peranimal_text_view);
-        volumeEditText = findViewById(R.id.volume_peranimal_text_view);
+        landEditText = findViewById(R.id.land_peranimal_text_view);
+        waterEditText = findViewById(R.id.water_peranimal_text_view2);
+        airEditText = findViewById(R.id.air_peranimal_text_view);
         pettingSpinner = findViewById(R.id.can_pet_spinner);
         hostilitySpinner = findViewById(R.id.hostile_spinner);
         penAssignedSpinner = findViewById(R.id.pen_assigned_spinner);
@@ -78,7 +75,6 @@ public class AnimalForm extends AppCompatActivity {
         booleanArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         animaltypeSpinner.setAdapter(animalTypeArrayAdapter);
-        penTypeSpinner.setAdapter(penTypeArrayAdapter);
         pettingSpinner.setAdapter(booleanArrayAdapter);
         hostilitySpinner.setAdapter(booleanArrayAdapter);
         penAssignedSpinner.setAdapter(penTypeArrayAdapter);
@@ -92,24 +88,6 @@ public class AnimalForm extends AppCompatActivity {
                 selectedAnimalType = itemValue;
                 Toast.makeText(getApplicationContext(),
                         "Position: " + itemPosition + " item selected: " + animalTypeString, Toast.LENGTH_LONG)
-                        .show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        penTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                int itemPosition = position;
-                PenType itemValue = (PenType) penTypeSpinner.getItemAtPosition(position);
-                penTypeString = itemValue.toString();
-                selectedPenType = itemValue;
-                Toast.makeText(getApplicationContext(),
-                        "Position: " + itemPosition + " item selected: " + penTypeString, Toast.LENGTH_LONG)
                         .show();
             }
 
@@ -183,17 +161,19 @@ public class AnimalForm extends AppCompatActivity {
 
     public void createAnimal() {
         initialize();
-        newAnimal = new Animal(animalId, selectedAnimalType, selectedPenType, selectedArea, selectedVolume, selectedAssignedPenType, selectedPettingOption, selectedHostileOption);
+        newAnimal = new Animal(animalId, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPenType, selectedPettingOption, selectedHostileOption);
 
         Zoo zooInstance = Zoo.getInstance();
         zooInstance.addAnimal(newAnimal);
     }
 
     public void initialize(){
-        areaString = areaEditText.getText().toString();
-        volumeString = volumeEditText.getText().toString();
+        landString = landEditText.getText().toString();
+        waterString = waterEditText.getText().toString();
+        airString = airEditText.getText().toString();
 
-        areaDouble = Double.parseDouble(areaString);
-        volumeDouble = Double.parseDouble(volumeString);
+        selectedLand = Double.parseDouble(landString);
+        selectedWater = Double.parseDouble(waterString);
+        selectedAir = Double.parseDouble(airString);
     }
 }
