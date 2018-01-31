@@ -3,6 +3,7 @@ package com.example.mavesonzini.zooadaapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -78,6 +79,10 @@ public class AnimalForm extends AppCompatActivity {
         pettingSpinner.setAdapter(booleanArrayAdapter);
         hostilitySpinner.setAdapter(booleanArrayAdapter);
         penAssignedSpinner.setAdapter(penTypeArrayAdapter);
+
+        landEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        waterEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        airEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         animaltypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

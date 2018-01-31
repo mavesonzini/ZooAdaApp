@@ -3,6 +3,7 @@ package com.example.mavesonzini.zooadaapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -66,6 +67,10 @@ public class PensForm extends AppCompatActivity {
 
         penTypeSpinner.setAdapter(pensAdapter);
         zookeeperSpinner.setAdapter(zookeepersAdapter);
+
+        dryAreaEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        wetAreaEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        volumeEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         penTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

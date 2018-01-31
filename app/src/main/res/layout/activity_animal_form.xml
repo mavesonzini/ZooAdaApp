@@ -113,7 +113,7 @@
         android:id="@+id/label4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/water"
         app:layout_constraintEnd_toEndOf="@+id/textView23"
         app:layout_constraintTop_toBottomOf="@+id/label3" />
@@ -181,7 +181,7 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="30dp"
         android:text="@string/air_space"
         app:layout_constraintEnd_toEndOf="@+id/label5"
         app:layout_constraintTop_toBottomOf="@+id/label4" />
