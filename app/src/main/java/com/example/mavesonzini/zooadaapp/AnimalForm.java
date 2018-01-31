@@ -10,8 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class AnimalForm extends AppCompatActivity {
@@ -39,7 +42,7 @@ public class AnimalForm extends AppCompatActivity {
 
     private AnimalType[] animalTypes = AnimalType.getAllAnimalTypes();
     private PenType[] penTypes = PenType.getAllPenTypes();
-    private String[] boolOptionsArray = {"Yes", "No"};
+    private String[] boolOptionsArray = {"true", "false"};
 
     private Animal newAnimal;
     private UUID animalId;
@@ -94,6 +97,28 @@ public class AnimalForm extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Position: " + itemPosition + " item selected: " + animalTypeString, Toast.LENGTH_LONG)
                         .show();
+
+                if (itemValue.getAnimalTypeEnum() != AnimalTypeEnum.OTHER ){
+                    //disable all spinners
+                    pettingSpinner.setEnabled(false);
+                    pettingSpinner.setEnabled(false);
+                    hostilitySpinner.setEnabled(false);
+                    landEditText.setEnabled(false);
+                    waterEditText.setEnabled(false);
+                    airEditText.setEnabled(false);
+
+//                    //set default values for animal
+                    landEditText.setText(itemValue.getLand());
+                    waterEditText.setText(itemValue.getWater());
+                    airEditText.setText(itemValue.getAir());
+
+                    String string = itemValue.getIsPet();
+                    int isPet = Arrays.asList(boolOptionsArray).indexOf(itemValue.getIsPet());
+                    System.out.print(string);
+                    int isHostileIndex = Arrays.asList(boolOptionsArray).indexOf(itemValue.getIsHostile());
+                    pettingSpinner.setSelection(isPet);
+                    hostilitySpinner.setSelection(isHostileIndex);
+                }
             }
 
             @Override

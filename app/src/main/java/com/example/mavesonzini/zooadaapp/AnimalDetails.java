@@ -1,11 +1,8 @@
 package com.example.mavesonzini.zooadaapp;
 
-import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class AnimalDetails extends AppCompatActivity {
     private TextView animalNameTextView;
@@ -71,6 +68,7 @@ public class AnimalDetails extends AppCompatActivity {
         petting = AnimalsList.getItemFromSelectedPosition().getIsPet();
         return petting;
     }
+
 }
 
 
