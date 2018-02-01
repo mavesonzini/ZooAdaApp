@@ -1,6 +1,8 @@
 package com.example.mavesonzini.zooadaapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -18,17 +20,22 @@ public class PensForm extends AppCompatActivity {
 
     private PenType [] penTypes;
     private ZooKeeper[] zooKeepers;
+
     private Spinner penTypeSpinner;
     private Spinner zookeeperSpinner;
+
     private String penTypeString;
     private String zookeeperString;
     private String dryAreaString;
     private String wetAreaString;
     private String volumeString;
+
     private EditText dryAreaEditText;
     private EditText wetAreaEditText;
     private EditText volumeEditText;
+
     private Button createButton;
+
     private PenType selectedPen;
     private ZooKeeper selectedZookeeper;
     private double dryAreaDouble;
@@ -72,6 +79,7 @@ public class PensForm extends AppCompatActivity {
         wetAreaEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
         volumeEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+
         penTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -82,6 +90,22 @@ public class PensForm extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Position: " + itemPosition + " item selected: " + penTypeString, Toast.LENGTH_LONG)
                         .show();
+                if (penTypeString == "Dry Pen") {
+                    zookeeperSpinner.setEnabled(false);
+                    zookeeperSpinner.setSelection(0);
+                } else if (penTypeString == "Aquarium") {
+                    zookeeperSpinner.setEnabled(false);
+                    zookeeperSpinner.setSelection(1);
+                } else if (penTypeString == "Part wet - part dry") {
+                    zookeeperSpinner.setEnabled(false);
+                    zookeeperSpinner.setSelection(1);
+                } else if (penTypeString == "Aviary") {
+                    zookeeperSpinner.setEnabled(false);
+                    zookeeperSpinner.setSelection(2);
+                } else if (penTypeString == "Petting pen") {
+                    zookeeperSpinner.setEnabled(false);
+                    zookeeperSpinner.setSelection(3);
+                }
             }
 
             @Override
@@ -115,44 +139,60 @@ public class PensForm extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                initialize();
+                isFormValid();
+                showAlerts();
                 createPen();
 
                 Intent intent = new Intent(PensForm.this, PensList.class);
                 startActivity(intent);
             }
         });
+
     }
 
     public void createPen() {
-        initialize();
-        if (!validate()) {
-            Toast.makeText(this, "Don't leave areas empty!", Toast.LENGTH_SHORT).show();
-        }
-//        newPen = new Pen(penId, selectedPen, dryAreaDouble, wetAreaDouble, volumeDouble, selectedZookeeper);
+        newPen = new Pen(penId, selectedPen, 5,dryAreaDouble, wetAreaDouble, volumeDouble, selectedZookeeper);
 
         Zoo zooInstance = Zoo.getInstance();
         zooInstance.addPen(newPen);
+        zooInstance.increasePenCount();
     }
 
     private void initialize() {
-        dryAreaString = dryAreaEditText.getText().toString();
-        wetAreaString = wetAreaEditText.getText().toString().trim();
-        volumeString = volumeEditText.getText().toString().trim();
+            dryAreaString = dryAreaEditText.getText().toString();
+            wetAreaString = wetAreaEditText.getText().toString().trim();
+            volumeString = volumeEditText.getText().toString().trim();
 
-        dryAreaDouble = Double.parseDouble(dryAreaString);
-        wetAreaDouble = Double.parseDouble(wetAreaString);
-        volumeDouble = Double.parseDouble(volumeString);
-        penId = UUID.randomUUID();
+            dryAreaDouble = Double.parseDouble(dryAreaString);
+            wetAreaDouble = Double.parseDouble(wetAreaString);
+            volumeDouble = Double.parseDouble(volumeString);
+            penId = UUID.randomUUID();
 
     }
 
-    private boolean validate() {
+    private boolean isFormValid() {
         boolean valid = true;
-
-        if (dryAreaString.isEmpty() || dryAreaString.length() > 6 || wetAreaString.isEmpty() || wetAreaString.length() > 6 || volumeString.isEmpty() || volumeString.length() > 6) {
-            dryAreaEditText.setError("Please enter valid numbers");
+        if (penTypeString == "No selection") {
             valid = false;
         }
         return valid;
+    }
+
+    private void showAlerts() {
+        if (!isFormValid()) {
+            AlertDialog alertDialog = new AlertDialog.Builder(PensForm.this).create();
+            alertDialog.setTitle("No pentype found");
+            alertDialog.setMessage("Please assign a pen type!");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        } else {
+            return;
+        }
     }
 }

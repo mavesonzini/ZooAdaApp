@@ -18,6 +18,7 @@ public class PensList extends AppCompatActivity {
     private ListView listView;
     private List<Pen> pensArray;
     private static Pen item = null;
+    private FloatingActionButton homeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +60,23 @@ public class PensList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        homeButton = findViewById(R.id.home_button);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PensList.this.finish();
+                Intent intent = new Intent(PensList.this, ZooController.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
     }
 
     public static Pen getItemFromSelectedPosition(){
         return item;
     }
+
+
 
 }

@@ -2,6 +2,8 @@ package com.example.mavesonzini.zooadaapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.UUID;
@@ -13,6 +15,9 @@ public class PenDetails extends AppCompatActivity {
     private TextView wetAreaLabel;
     private TextView volumeLabel;
     private TextView assignedToZookeeperLabel;
+
+    private Button backToListButton;
+
     private String penType;
     private String dryArea;
     private String wetArea;
@@ -28,6 +33,7 @@ public class PenDetails extends AppCompatActivity {
         dryAreaLabel = findViewById(R.id.dry_area_display_label);
         wetAreaLabel = findViewById(R.id.wet_area_display_label);
         volumeLabel = findViewById(R.id.volume_display_label);
+        backToListButton = findViewById(R.id.back_to_list_button);
         assignedToZookeeperLabel = findViewById(R.id.zookeeper_assigned_display_label);
 
         penTypeLabel.setText(getPenTypeFromSelectedRow());
@@ -35,6 +41,13 @@ public class PenDetails extends AppCompatActivity {
         wetAreaLabel.setText(getWetAreaFromSelectedRow());
         volumeLabel.setText(getVolumeFromSelectedRow());
         assignedToZookeeperLabel.setText(getZookeeperAssignedFromSelectedRow());
+
+        backToListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PenDetails.this.finish();
+            }
+        });
 
     }
 

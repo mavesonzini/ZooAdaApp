@@ -34,4 +34,12 @@
     <string name="needs_space_to_fly">Needs space to fly:</string>
     <string name="needs_water">Needs water:</string>
     <string name="needs_land">Needs land:</string>
+    <string name="back_to_list">Back to List</string>
+    <string name="text">TEXT</string>
+    <string name="zookeepers">ZOOKEEPERS</string>
+    <string name="my_zoo_currently_has">My zoo currently has:</string>
+    <string name="animals_living_here">animals living here!</string>
+    <string name="animals">ANIMALS</string>
+    <string name="pens">PENS</string>
+    <string name="welcome_to_my_zoo">WELCOME TO MY ZOO!</string>
 </resources>

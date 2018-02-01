@@ -9,15 +9,15 @@ public class ZooKeeper {
     private String[] penTypes;
 
     public static ZooKeeper[] getAllZookeepers() {
-        String[] hardipPenTypes = {"Dry Pen"};
-        String[] alexPens = {"Aquarium", "Part water, part Dry"};
-        String[] farhadPens = {"Aviary"};
-        String[] alanPens = {"Petting pen"};
+        String[] hardipPenTypes = {"DRY PEN"};
+        String[] alexPens = {"AQUARIUM", "PART WATER, PART DRY"};
+        String[] farhadPens = {"AVIARY"};
+        String[] alanPens = {"PETTING PEN"};
 
-        ZooKeeper hardip = new ZooKeeper("Hardip", hardipPenTypes);
-        ZooKeeper alex = new ZooKeeper("Alex", alexPens);
-        ZooKeeper farhad = new ZooKeeper("Farhad", farhadPens);
-        ZooKeeper alan = new ZooKeeper("Alan", alanPens);
+        ZooKeeper hardip = new ZooKeeper("HARDIP", hardipPenTypes);
+        ZooKeeper alex = new ZooKeeper("ALEX", alexPens);
+        ZooKeeper farhad = new ZooKeeper("FARHAD", farhadPens);
+        ZooKeeper alan = new ZooKeeper("ALAN", alanPens);
 
         ZooKeeper[] zookeepers = {hardip, alex, farhad, alan};
 

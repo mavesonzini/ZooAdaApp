@@ -7,17 +7,19 @@ package com.example.mavesonzini.zooadaapp;
 public class PenType {
         private String penTypeName;
         private static PenType[] penTypes = PenType.getAllPenTypes();
+        private String responsibleZookeeper;
 
-        public PenType(String penTypeName) {
+    public PenType(String penTypeName, String responsibleZookeeper) {
             this.penTypeName = penTypeName;
+            this.responsibleZookeeper = responsibleZookeeper;
         }
         public static PenType[] getAllPenTypes() {
-            PenType dryPen = new PenType("Dry Pen");
-            PenType aquarium =  new PenType("Aquarium");
-            PenType partWaterPartDry = new PenType("Part water - part dry");
-            PenType aviary = new PenType("Aviary");
-            PenType pettingPen = new PenType("Petting pen");
-            PenType empty = new PenType(null);
+            PenType dryPen = new PenType("Dry Pen", "HARDIP");
+            PenType aquarium =  new PenType("Aquarium", "ALEX");
+            PenType partWaterPartDry = new PenType("Part water - part dry", "ALEX");
+            PenType aviary = new PenType("Aviary", "FARHAD");
+            PenType pettingPen = new PenType("Petting pen", "ALAN");
+            PenType empty = new PenType("No selection", null);
 
             PenType[] penTypes = {empty, dryPen, aquarium, partWaterPartDry, aviary, pettingPen};
             return penTypes;
@@ -43,6 +45,9 @@ public class PenType {
             return penTypes[4];
         }
 
+        public String getResponsibleZookeeper() {
+            return responsibleZookeeper;
+        }
 
     @Override
     public String toString() {

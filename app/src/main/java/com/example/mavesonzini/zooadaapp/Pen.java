@@ -29,10 +29,6 @@ public class Pen {
     public String toString() {
         return this.penType.toString();
     }
-
-    public String getCapacity() {
-        return String.valueOf(capacity);
-    }
     
     public String getDryArea() {
         return String.valueOf(dryArea);
@@ -50,7 +46,21 @@ public class Pen {
         return this.zookeeper.toString();
     }
 
+    public int getCapacity() {
+        return this.capacity;
+    }
+
     public static UUID getPenId() {
         return penId;
+    }
+
+    public void setCapacity(int animalSize) {
+        if (animalSize == 1) {
+            capacity = 10;
+        } else if (animalSize == 2) {
+            capacity = 5;
+        } else {
+            capacity = 2;
+        }
     }
 }

@@ -15,9 +15,11 @@ public class Animal {
     private PenType penAssigned;
     private boolean isPet;
     private boolean isHostile;
+    private String name;
 
-    public Animal(UUID animalId, AnimalType animalType, double land, double water, double air, PenType penAssigned, boolean isPet, boolean isHostile) {
+    public Animal(UUID animalId, String name, AnimalType animalType, double land, double water, double air, PenType penAssigned, boolean isPet, boolean isHostile) {
         this.animalId = animalId;
+        this.name = name;
         this.animalType = animalType;
         this.land = land;
         this.water = water;
@@ -48,6 +50,10 @@ public class Animal {
 
     public String getIsPet(){
         return String.valueOf(isPet);
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public String getIsHostile() {

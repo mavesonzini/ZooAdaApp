@@ -146,4 +146,15 @@
         app:layout_constraintEnd_toEndOf="@+id/animal_assigned_pen_label"
         app:layout_constraintTop_toBottomOf="@+id/animal_volume_label" />
 
+    <Button
+        android:id="@+id/back_animal_list_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="146dp"
+        android:text="BACK TO LIST"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

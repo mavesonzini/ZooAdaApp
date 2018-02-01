@@ -1,6 +1,7 @@
 package com.example.mavesonzini.zooadaapp;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -9,13 +10,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -49,10 +47,12 @@ public class AnimalForm extends AppCompatActivity {
     private String[] boolOptionsArray = {"true", "false"};
 
     private Animal newAnimal;
+    private Animal newAnimalOther;
     private UUID animalId;
     private String landString;
     private String waterString;
     private String airString;
+    private String nameString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +104,7 @@ public class AnimalForm extends AppCompatActivity {
                         "Position: " + itemPosition + " item selected: " + animalTypeString, Toast.LENGTH_LONG)
                         .show();
 
-                if (itemValue.getAnimalTypeEnum() != AnimalTypeEnum.OTHER ){
+                if (itemValue.getAnimalTypeEnum() != AnimalTypeEnum.OTHER) {
                     //Hide name label and editText
                     nameLabel.setVisibility(View.GONE);
                     nameEditText.setVisibility(View.GONE);
@@ -214,15 +214,21 @@ public class AnimalForm extends AppCompatActivity {
         });
     }
 
-    public void createAnimal() {
+    private void createAnimal() {
         initialize();
-        newAnimal = new Animal(animalId, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPenType, selectedPettingOption, selectedHostileOption);
+        if (selectedAnimalType.getAnimalTypeEnum() == AnimalTypeEnum.OTHER) {
+            newAnimal = new Animal(animalId, nameString, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPenType, selectedPettingOption, selectedHostileOption);
+        } else {
+            newAnimal = new Animal(animalId, null, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPenType, selectedPettingOption, selectedHostileOption);
+        }
 
         Zoo zooInstance = Zoo.getInstance();
         zooInstance.addAnimal(newAnimal);
+        zooInstance.increaseAnimalCount();
     }
 
-    public void initialize(){
+    private void initialize() {
+        nameString = nameEditText.getText().toString();
         landString = landEditText.getText().toString();
         waterString = waterEditText.getText().toString();
         airString = airEditText.getText().toString();
@@ -231,4 +237,10 @@ public class AnimalForm extends AppCompatActivity {
         selectedWater = Double.parseDouble(waterString);
         selectedAir = Double.parseDouble(airString);
     }
+// TODO: add notification when empty.
+//    private void checkFieldsAreComplete() {
+//        if (nameString.isEmpty() || landString.isEmpty() || waterString.isEmpty() || airString.isEmpty()) {
+//
+//        }
+//    }
 }

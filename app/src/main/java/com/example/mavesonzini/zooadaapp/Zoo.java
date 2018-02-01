@@ -15,6 +15,8 @@ class Zoo {
     public ZooKeeper[] zooKeepers;
     public HashMap<UUID, Pen> idsToPens = new HashMap<>();
     public HashMap<UUID, Animal> idsToAnimals = new HashMap<>();
+    public int animalCount = 0;
+    public int penCount = 0;
 
     static Zoo getInstance() {
         return ourInstance;
@@ -53,5 +55,20 @@ class Zoo {
             UUID newUUID = UUID.randomUUID();
             idsToAnimals.put(newUUID, animal);
         }
+    }
+
+    public int getNumberOfAnimals() {
+        return animalCount;
+    }
+
+    public int getNumberOfPens() {
+        return penCount;
+    }
+    public void increaseAnimalCount() {
+        animalCount = animalCount + 1;
+    }
+
+    public void increasePenCount() {
+        penCount = penCount + 1;
     }
 }

@@ -2,6 +2,8 @@ package com.example.mavesonzini.zooadaapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class AnimalDetails extends AppCompatActivity {
@@ -12,12 +14,15 @@ public class AnimalDetails extends AppCompatActivity {
     private TextView penAssignedTextView;
     private TextView pettingTextView;
 
+    private Button backToListButton;
+
     private String animalName;
     private String land;
     private String water;
     private String air;
     private String assignedPen;
     private String petting;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +35,38 @@ public class AnimalDetails extends AppCompatActivity {
         airTextView = findViewById(R.id.air_peranimal_text_view);
         penAssignedTextView = findViewById(R.id.animal_assigned_pen_label);
         pettingTextView = findViewById(R.id.animal_pet_label);
+        backToListButton = findViewById(R.id.back_animal_list_button);
 
-        animalNameTextView.setText(getAnimalNameFromSelectedRow());
-        landTextView.setText(getAreaFromSelectedRow());
-        waterTextView.setText(getVolumeFromSelectedRow());
-        airTextView.setText(getAirFromSelectedRow());
-        penAssignedTextView.setText(getAssignedPenFromSelectedRow());
-        pettingTextView.setText(getPettingFromSelectedRow());
+        if (getAnimalNameFromSelectedRow() == "Other...") {
+            animalNameTextView.setText(getNameFromSelectedRow());
+            landTextView.setText(getAreaFromSelectedRow());
+            waterTextView.setText(getVolumeFromSelectedRow());
+            airTextView.setText(getAirFromSelectedRow());
+            penAssignedTextView.setText(getAssignedPenFromSelectedRow());
+            pettingTextView.setText(getPettingFromSelectedRow());
+
+        } else {
+            animalNameTextView.setText(getAnimalNameFromSelectedRow());
+            animalNameTextView.setText(getAnimalNameFromSelectedRow());
+            landTextView.setText(getAreaFromSelectedRow());
+            waterTextView.setText(getVolumeFromSelectedRow());
+            airTextView.setText(getAirFromSelectedRow());
+            penAssignedTextView.setText(getAssignedPenFromSelectedRow());
+            pettingTextView.setText(getPettingFromSelectedRow());
+        }
+
+        backToListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AnimalDetails.this.finish();
+            }
+        });
+
     }
 
     public String getAnimalNameFromSelectedRow() {
         animalName = AnimalsList.getItemFromSelectedPosition().toString();
+        System.out.print(animalName);
         return animalName;
     }
 
@@ -67,6 +93,12 @@ public class AnimalDetails extends AppCompatActivity {
     public String getPettingFromSelectedRow() {
         petting = AnimalsList.getItemFromSelectedPosition().getIsPet();
         return petting;
+    }
+
+    public String getNameFromSelectedRow() {
+        name = AnimalsList.getItemFromSelectedPosition().getName();
+        System.out.print(name);
+        return name;
     }
 
 }

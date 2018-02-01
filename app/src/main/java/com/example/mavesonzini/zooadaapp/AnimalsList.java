@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ public class AnimalsList extends AppCompatActivity {
     private ListView listView;
     private List<Animal> animalList;
     private static Animal item = null;
+    private static FloatingActionButton homeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,8 @@ public class AnimalsList extends AppCompatActivity {
         setContentView(R.layout.activity_animals_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        homeButton = findViewById(R.id.home_button);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +62,16 @@ public class AnimalsList extends AppCompatActivity {
                 Intent intent = new Intent(AnimalsList.this, AnimalDetails.class);
                 startActivity(intent);
 
+            }
+        });
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AnimalsList.this.finish();
+                Intent intent = new Intent(AnimalsList.this, ZooController.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
     }
