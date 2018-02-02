@@ -12,8 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class PensForm extends AppCompatActivity {
@@ -33,6 +38,8 @@ public class PensForm extends AppCompatActivity {
     private EditText dryAreaEditText;
     private EditText wetAreaEditText;
     private EditText volumeEditText;
+    private TextView spaceNumberLabel;
+    private TextView animalTypeLabel;
 
     private Button createButton;
 
@@ -56,10 +63,16 @@ public class PensForm extends AppCompatActivity {
         //Get view for all elements
         penTypeSpinner = findViewById(R.id.pen_type_spinner);
         zookeeperSpinner = findViewById(R.id.zookeeper_spinner);
+
         dryAreaEditText = findViewById(R.id.dry_area_editText);
         wetAreaEditText = findViewById(R.id.wet_area_editText);
         volumeEditText = findViewById(R.id.volume_area_editText);
+
         createButton = findViewById(R.id.create_pen_button);
+
+        spaceNumberLabel = findViewById(R.id.space_number_label);
+        animalTypeLabel  = findViewById(R.id.animal_assigned_label);
+
 
         //Set Adapters for pen type and zookeepers
         ArrayAdapter<PenType> pensAdapter = new ArrayAdapter<>(this,
@@ -78,6 +91,11 @@ public class PensForm extends AppCompatActivity {
         dryAreaEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
         wetAreaEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
         volumeEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+        //set Text to labels
+        animalTypeLabel.setText("This pen has no animals assigned to it!");
+        spaceNumberLabel.setText("Tihs pen is EMPTY! 10 spaces left");
+
 
 
         penTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -140,12 +158,12 @@ public class PensForm extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 initialize();
-                isFormValid();
+                if (isFormValid()) {
+                    Intent intent = new Intent(PensForm.this, PensList.class);
+                    startActivity(intent);
+                }
                 showAlerts();
                 createPen();
-
-                Intent intent = new Intent(PensForm.this, PensList.class);
-                startActivity(intent);
             }
         });
 
@@ -195,4 +213,32 @@ public class PensForm extends AppCompatActivity {
             return;
         }
     }
+}
+
+class PenAssigned {
+    private List<Pen> createdPenList;
+    private static List<Pen> matchingPensForAnimalList = new ArrayList<Pen>() {};
+
+    private Zoo zooInstance = Zoo.getInstance();
+
+    public List<Pen> getCreatedPens () {
+        createdPenList = zooInstance.getPens();
+        return createdPenList;
+    }
+
+    public List<Pen> getMatchingPensForAnimal() {
+        getCreatedPens();
+        for (int i = 0; i < createdPenList.size(); i ++) {
+            Pen pen = createdPenList.get(i);
+            if (pen.getCapacity() < 10) {
+                matchingPensForAnimalList.add(pen);
+            }
+        }
+        return matchingPensForAnimalList;
+    }
+
+    public static List<Pen> getMatchingPensForAnimalList() {
+        return matchingPensForAnimalList;
+    }
+
 }

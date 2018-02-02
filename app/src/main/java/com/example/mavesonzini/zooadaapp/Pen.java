@@ -9,7 +9,7 @@ import java.util.UUID;
 public class Pen {
     private static UUID penId;
     private PenType penType;
-    private int capacity;
+    private int capacity = 10;
     private double dryArea;
     private double wetArea;
     private double volume;
@@ -52,15 +52,5 @@ public class Pen {
 
     public static UUID getPenId() {
         return penId;
-    }
-
-    public void setCapacity(int animalSize) {
-        if (animalSize == 1) {
-            capacity = 10;
-        } else if (animalSize == 2) {
-            capacity = 5;
-        } else {
-            capacity = 2;
-        }
     }
 }

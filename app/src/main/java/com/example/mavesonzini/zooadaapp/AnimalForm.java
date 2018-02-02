@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 public class AnimalForm extends AppCompatActivity {
@@ -44,6 +45,7 @@ public class AnimalForm extends AppCompatActivity {
 
     private AnimalType[] animalTypes = AnimalType.getAllAnimalTypes();
     private PenType[] penTypes = PenType.getAllPenTypes();
+    private List<Pen> matchingPensList = PenAssigned.getMatchingPensForAnimalList();
     private String[] boolOptionsArray = {"true", "false"};
 
     private Animal newAnimal;
@@ -80,6 +82,9 @@ public class AnimalForm extends AppCompatActivity {
         ArrayAdapter<String> booleanArrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, android.R.id.text1, boolOptionsArray);
 
+        ArrayAdapter<Pen> matchingPenArrayAdapter = new ArrayAdapter<Pen>(this,
+                android.R.layout.simple_spinner_dropdown_item, android.R.id.text1, matchingPensList);
+
         animalTypeArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         penTypeArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         booleanArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -87,7 +92,7 @@ public class AnimalForm extends AppCompatActivity {
         animaltypeSpinner.setAdapter(animalTypeArrayAdapter);
         pettingSpinner.setAdapter(booleanArrayAdapter);
         hostilitySpinner.setAdapter(booleanArrayAdapter);
-        penAssignedSpinner.setAdapter(penTypeArrayAdapter);
+        penAssignedSpinner.setAdapter(matchingPenArrayAdapter);
 
         landEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
         waterEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
