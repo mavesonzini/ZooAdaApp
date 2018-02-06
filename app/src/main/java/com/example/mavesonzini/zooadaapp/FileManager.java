@@ -16,7 +16,7 @@ import static android.content.ContentValues.TAG;
  */
 
 public class FileManager {
-    private static final String FILE_NAME = "zooFile.temp";
+    private static final String FILE_NAME = "zoo.temp";
     private final Context context;
 
     public FileManager(Context context) {
