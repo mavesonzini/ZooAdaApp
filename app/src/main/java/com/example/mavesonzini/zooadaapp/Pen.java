@@ -50,8 +50,8 @@ public class Pen implements Serializable {
         return this.zookeeper.toString();
     }
 
-    public int getCapacity() {
-        return this.capacity;
+    public String getCapacity() {
+        return String.valueOf(capacity);
     }
 
     public UUID getPenId() {

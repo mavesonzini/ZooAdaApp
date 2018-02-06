@@ -3,6 +3,7 @@ package com.example.mavesonzini.zooadaapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ public class PenDetails extends AppCompatActivity implements Serializable {
     private TextView wetAreaLabel;
     private TextView volumeLabel;
     private TextView assignedToZookeeperLabel;
+    private TextView penCapacityLabel;
 
     private Button backToListButton;
 
@@ -24,7 +26,7 @@ public class PenDetails extends AppCompatActivity implements Serializable {
     private String wetArea;
     private String volume;
     private String zookeeperAssigned;
-
+    private String capacity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +38,16 @@ public class PenDetails extends AppCompatActivity implements Serializable {
         volumeLabel = findViewById(R.id.volume_display_label);
         backToListButton = findViewById(R.id.back_to_list_button);
         assignedToZookeeperLabel = findViewById(R.id.zookeeper_assigned_display_label);
+        penCapacityLabel = findViewById(R.id.pen_capacity_label);
 
         penTypeLabel.setText(getPenTypeFromSelectedRow());
         dryAreaLabel.setText(getDryAreaFromSelectedRow());
         wetAreaLabel.setText(getWetAreaFromSelectedRow());
         volumeLabel.setText(getVolumeFromSelectedRow());
         assignedToZookeeperLabel.setText(getZookeeperAssignedFromSelectedRow());
+        penCapacityLabel.setText(getCapacityFromPen());
 
-        backToListButton.setOnClickListener(new View.OnClickListener() {
+        backToListButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 PenDetails.this.finish();
@@ -75,5 +79,10 @@ public class PenDetails extends AppCompatActivity implements Serializable {
     public String getZookeeperAssignedFromSelectedRow() {
         zookeeperAssigned = PensList.getItemFromSelectedPosition().getZookeeper();
         return zookeeperAssigned;
+    }
+
+    public String getCapacityFromPen() {
+        capacity = PensList.getItemFromSelectedPosition().getCapacity();
+        return capacity;
     }
 }
