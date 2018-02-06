@@ -45,7 +45,7 @@ public class PenDetails extends AppCompatActivity implements Serializable {
         wetAreaLabel.setText(getWetAreaFromSelectedRow());
         volumeLabel.setText(getVolumeFromSelectedRow());
         assignedToZookeeperLabel.setText(getZookeeperAssignedFromSelectedRow());
-        penCapacityLabel.setText(getCapacityFromPen());
+        penCapacityLabel.setText(getCapacityFromSelectedPen());
 
         backToListButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -81,8 +81,11 @@ public class PenDetails extends AppCompatActivity implements Serializable {
         return zookeeperAssigned;
     }
 
-    public String getCapacityFromPen() {
-        capacity = PensList.getItemFromSelectedPosition().getCapacity();
+    public String getCapacityFromSelectedPen() {
+        UUID penId = PensList.getItemFromSelectedPosition().getPenId();
+        Zoo zoo = Zoo.getInstance();
+        Pen selectedPen = zoo.getPenById(penId);
+        capacity = selectedPen.getCapacity();
         return capacity;
     }
 }

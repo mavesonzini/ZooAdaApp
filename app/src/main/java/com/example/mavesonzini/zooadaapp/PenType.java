@@ -1,6 +1,7 @@
 package com.example.mavesonzini.zooadaapp;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * Created by mavesonzini on 27/01/2018.

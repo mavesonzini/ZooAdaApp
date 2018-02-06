@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.RecursiveTask;
 
 /**
  * Created by mavesonzini on 27/01/2018.
@@ -12,7 +13,7 @@ import java.util.UUID;
 public class Pen implements Serializable {
     private UUID penId;
     private PenType penType;
-    public int capacity = 10;
+    public int capacity;
     private double dryArea;
     private double wetArea;
     private double volume;
@@ -71,12 +72,4 @@ public class Pen implements Serializable {
         }
         return matchingPens;
     }
-
-//    public static int getAnimalCountForPen(){
-//        List<Pen> pens = zooInstance.getPens();
-//        for (int i = 0; i < pens.size(); i ++) {
-//            Pen pen = pens.get(i);
-//
-//        }
-//    }
 }

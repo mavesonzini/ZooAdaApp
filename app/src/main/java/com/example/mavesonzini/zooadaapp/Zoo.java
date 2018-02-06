@@ -79,7 +79,7 @@ class Zoo implements Serializable {
         Pen pen = getPenById(penId);
         System.out.print(pen);
         int penCapacity = pen.capacity;
-        if (penCapacity <= 1) {
+        if (penCapacity >= 1) {
             penCapacity = penCapacity - 1;
             pen.capacity = penCapacity;
         }
