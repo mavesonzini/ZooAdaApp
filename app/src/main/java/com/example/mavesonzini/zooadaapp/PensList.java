@@ -11,9 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PensList extends AppCompatActivity {
+public class PensList extends AppCompatActivity implements Serializable {
 
     private ListView listView;
     private List<Pen> pensArray;

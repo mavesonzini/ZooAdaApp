@@ -2,11 +2,13 @@ package com.example.mavesonzini.zooadaapp;
 
 import android.support.annotation.Nullable;
 
+import java.io.Serializable;
+
 /**
  * Created by mavesonzini on 29/01/2018.
  */
 
-public class AnimalType {
+public class AnimalType implements Serializable {
     private String animalTypeName;
     private String name;
     private PenType penType;

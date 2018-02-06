@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class ZooKeeperDetails extends AppCompatActivity {
+import java.io.Serializable;
+
+public class ZooKeeperDetails extends AppCompatActivity implements Serializable {
 
     private TextView nameLabel;
     private TextView detailsLabel;

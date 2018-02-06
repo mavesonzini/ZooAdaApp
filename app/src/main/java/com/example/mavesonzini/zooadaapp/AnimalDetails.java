@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class AnimalDetails extends AppCompatActivity {
+import java.io.Serializable;
+
+public class AnimalDetails extends AppCompatActivity implements Serializable {
     private TextView animalNameTextView;
     private TextView landTextView;
     private TextView waterTextView;

@@ -1,23 +1,24 @@
 package com.example.mavesonzini.zooadaapp;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 /**
  * Created by mavesonzini on 29/01/2018.
  */
 
-public class Animal {
+public class Animal implements Serializable {
     private static UUID animalId;
     private AnimalType animalType;
     private double land;
     private double water;
     private double air;
-    private PenType penAssigned;
+    private Pen penAssigned;
     private boolean isPet;
     private boolean isHostile;
     private String name;
 
-    public Animal(UUID animalId, String name, AnimalType animalType, double land, double water, double air, PenType penAssigned, boolean isPet, boolean isHostile) {
+    public Animal(UUID animalId, String name, AnimalType animalType, double land, double water, double air, Pen penAssigned, boolean isPet, boolean isHostile) {
         this.animalId = animalId;
         this.name = name;
         this.animalType = animalType;

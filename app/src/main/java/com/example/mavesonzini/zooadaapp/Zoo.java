@@ -1,5 +1,6 @@
 package com.example.mavesonzini.zooadaapp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,13 +11,13 @@ import java.util.UUID;
  * Created by mavesonzini on 26/01/2018.
  */
 
-class Zoo {
-    private static final Zoo ourInstance = new Zoo();
+class Zoo implements Serializable {
+    private static Zoo ourInstance = new Zoo();
     public ZooKeeper[] zooKeepers;
-    public HashMap<UUID, Pen> idsToPens = new HashMap<>();
-    public HashMap<UUID, Animal> idsToAnimals = new HashMap<>();
-    public int animalCount = 0;
-    public int penCount = 0;
+    private HashMap<UUID, Pen> idsToPens = new HashMap<>();
+    private HashMap<UUID, Animal> idsToAnimals = new HashMap<>();
+    private int animalCount = 0;
+    private int penCount = 0;
 
     static Zoo getInstance() {
         return ourInstance;
@@ -24,7 +25,10 @@ class Zoo {
 
     private Zoo() {
         zooKeepers = ZooKeeper.getAllZookeepers();
+    }
 
+    public static void initializeZoo(Zoo zoo) {
+        ourInstance = zoo;
     }
 
     public List<Pen> getPens() {
@@ -45,8 +49,7 @@ class Zoo {
 
     public void addPen(Pen pen) {
         if (!getPens().contains(pen)) {
-            UUID newUUID = UUID.randomUUID();
-            idsToPens.put(newUUID, pen);
+            idsToPens.put(pen.getPenId(), pen);
         }
     }
 
@@ -70,5 +73,15 @@ class Zoo {
 
     public void increasePenCount() {
         penCount = penCount + 1;
+    }
+
+    public void decreaseAnimalCountInPen(UUID penId) {
+        Pen pen = getPenById(penId);
+        System.out.print(pen);
+        int penCapacity = pen.capacity;
+        if (penCapacity <= 1) {
+            penCapacity = penCapacity - 1;
+            pen.capacity = penCapacity;
+        }
     }
 }

@@ -6,9 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class PenDetails extends AppCompatActivity {
+public class PenDetails extends AppCompatActivity implements Serializable {
 
     private TextView penTypeLabel;
     private TextView dryAreaLabel;

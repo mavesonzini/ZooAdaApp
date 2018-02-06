@@ -1,10 +1,12 @@
 package com.example.mavesonzini.zooadaapp;
 
+import java.io.Serializable;
+
 /**
  * Created by mavesonzini on 27/01/2018.
  */
 
-public class PenType {
+public class PenType implements Serializable {
         private String penTypeName;
         private static PenType[] penTypes = PenType.getAllPenTypes();
         private String responsibleZookeeper;

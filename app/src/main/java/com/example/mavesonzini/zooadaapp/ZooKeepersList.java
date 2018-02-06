@@ -9,7 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class ZooKeepersList extends AppCompatActivity {
+import java.io.Serializable;
+
+public class ZooKeepersList extends AppCompatActivity implements Serializable {
 
     private ListView listView;
     private ZooKeeper[] zooKeepers;

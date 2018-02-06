@@ -1,10 +1,12 @@
 package com.example.mavesonzini.zooadaapp;
 
+import java.io.Serializable;
+
 /**
  * Created by mavesonzini on 26/01/2018.
  */
 
-public class ZooKeeper {
+public class ZooKeeper implements Serializable {
     private String name;
     private String[] penTypes;
 

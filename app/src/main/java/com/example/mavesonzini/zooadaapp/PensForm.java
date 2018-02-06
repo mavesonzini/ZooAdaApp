@@ -15,13 +15,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 import java.util.UUID;
 
-public class PensForm extends AppCompatActivity {
+public class PensForm extends AppCompatActivity implements Serializable {
 
     private PenType [] penTypes;
     private ZooKeeper[] zooKeepers;
@@ -213,32 +210,4 @@ public class PensForm extends AppCompatActivity {
             return;
         }
     }
-}
-
-class PenAssigned {
-    private List<Pen> createdPenList;
-    private static List<Pen> matchingPensForAnimalList = new ArrayList<Pen>() {};
-
-    private Zoo zooInstance = Zoo.getInstance();
-
-    public List<Pen> getCreatedPens () {
-        createdPenList = zooInstance.getPens();
-        return createdPenList;
-    }
-
-    public List<Pen> getMatchingPensForAnimal() {
-        getCreatedPens();
-        for (int i = 0; i < createdPenList.size(); i ++) {
-            Pen pen = createdPenList.get(i);
-            if (pen.getCapacity() < 10) {
-                matchingPensForAnimalList.add(pen);
-            }
-        }
-        return matchingPensForAnimalList;
-    }
-
-    public static List<Pen> getMatchingPensForAnimalList() {
-        return matchingPensForAnimalList;
-    }
-
 }

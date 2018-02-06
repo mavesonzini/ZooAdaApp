@@ -7,11 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ZooController extends AppCompatActivity {
+import java.io.Serializable;
+
+public class ZooController extends AppCompatActivity implements Serializable {
 
     Button zookeepersButton;
     Button pensButton;
     Button animalsButton;
+    Button weatherButton;
 
     int animalCount;
     int penCount;
@@ -25,6 +28,10 @@ public class ZooController extends AppCompatActivity {
 
         animalCountTextView = findViewById(R.id.animal_count_textView);
         zookeepersButton = findViewById(R.id.zookeepers_button);
+        animalsButton = findViewById(R.id.animals_button);
+        weatherButton = findViewById(R.id.to_weather_button);
+        pensButton = findViewById(R.id.pens_button);
+
 
         zookeepersButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,8 +41,6 @@ public class ZooController extends AppCompatActivity {
             }
         });
 
-        pensButton = findViewById(R.id.pens_button);
-
         pensButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,7 +49,6 @@ public class ZooController extends AppCompatActivity {
             }
         });
 
-        animalsButton = findViewById(R.id.animals_button);
 
         animalsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,5 +68,14 @@ public class ZooController extends AppCompatActivity {
         } else {
             animalCountTextView.setText(animalCount + " animals living here! and " + penCount + "pens created" );
         }
+
+        weatherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent internt = new Intent(ZooController.this, WeatherController.class);
+                startActivity(internt);
+            }
+        });
+
     }
 }

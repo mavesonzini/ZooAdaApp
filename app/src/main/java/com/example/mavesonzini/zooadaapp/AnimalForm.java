@@ -14,11 +14,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-public class AnimalForm extends AppCompatActivity {
+public class AnimalForm extends AppCompatActivity implements Serializable {
     private Spinner animaltypeSpinner;
     private Spinner pettingSpinner;
     private Spinner hostilitySpinner;
@@ -36,7 +37,7 @@ public class AnimalForm extends AppCompatActivity {
     private String penAssignedString;
 
     private AnimalType selectedAnimalType;
-    private PenType selectedAssignedPenType;
+    private Pen selectedAssignedPen;
     private boolean selectedPettingOption;
     private boolean selectedHostileOption;
     private double selectedLand;
@@ -45,11 +46,10 @@ public class AnimalForm extends AppCompatActivity {
 
     private AnimalType[] animalTypes = AnimalType.getAllAnimalTypes();
     private PenType[] penTypes = PenType.getAllPenTypes();
-    private List<Pen> matchingPensList = PenAssigned.getMatchingPensForAnimalList();
+    private List<Pen> matchingPensList = Pen.getMatchingPensForAnimal();
     private String[] boolOptionsArray = {"true", "false"};
 
     private Animal newAnimal;
-    private Animal newAnimalOther;
     private UUID animalId;
     private String landString;
     private String waterString;
@@ -82,12 +82,13 @@ public class AnimalForm extends AppCompatActivity {
         ArrayAdapter<String> booleanArrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, android.R.id.text1, boolOptionsArray);
 
-        ArrayAdapter<Pen> matchingPenArrayAdapter = new ArrayAdapter<Pen>(this,
+        ArrayAdapter<Pen> matchingPenArrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, android.R.id.text1, matchingPensList);
 
         animalTypeArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         penTypeArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         booleanArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        matchingPenArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         animaltypeSpinner.setAdapter(animalTypeArrayAdapter);
         pettingSpinner.setAdapter(booleanArrayAdapter);
@@ -195,9 +196,9 @@ public class AnimalForm extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 int itemPosition = position;
-                PenType itemValue = (PenType) penAssignedSpinner.getItemAtPosition(position);
+                Pen itemValue = (Pen) penAssignedSpinner.getItemAtPosition(position);
                 penAssignedString = itemValue.toString();
-                selectedAssignedPenType = itemValue;
+                selectedAssignedPen = itemValue;
                 Toast.makeText(getApplicationContext(),
                         "Position: " + itemPosition + " item selected: " + penAssignedString, Toast.LENGTH_LONG)
                         .show();
@@ -222,14 +223,15 @@ public class AnimalForm extends AppCompatActivity {
     private void createAnimal() {
         initialize();
         if (selectedAnimalType.getAnimalTypeEnum() == AnimalTypeEnum.OTHER) {
-            newAnimal = new Animal(animalId, nameString, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPenType, selectedPettingOption, selectedHostileOption);
+            newAnimal = new Animal(animalId, nameString, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPen, selectedPettingOption, selectedHostileOption);
         } else {
-            newAnimal = new Animal(animalId, null, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPenType, selectedPettingOption, selectedHostileOption);
+            newAnimal = new Animal(animalId, null, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPen, selectedPettingOption, selectedHostileOption);
         }
 
         Zoo zooInstance = Zoo.getInstance();
         zooInstance.addAnimal(newAnimal);
         zooInstance.increaseAnimalCount();
+        zooInstance.decreaseAnimalCountInPen(selectedAssignedPen.getPenId());
     }
 
     private void initialize() {
