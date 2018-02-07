@@ -1,7 +1,6 @@
 package com.example.mavesonzini.zooadaapp;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -15,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -46,7 +46,7 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
 
     private AnimalType[] animalTypes = AnimalType.getAllAnimalTypes();
     private PenType[] penTypes = PenType.getAllPenTypes();
-    private List<Pen> matchingPensList = Pen.getMatchingPensForAnimal();
+    private List<Pen> matchingPensList = new ArrayList<>();
     private String[] boolOptionsArray = {"true", "false"};
 
     private Animal newAnimal;
@@ -60,6 +60,7 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_form);
+      matchingPensList = Pen.getMatchingPensForAnimal();
 
         animaltypeSpinner = findViewById(R.id.animal_type_spinner);
         landEditText = findViewById(R.id.land_peranimal_text_view);
@@ -243,15 +244,8 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         airString = airEditText.getText().toString();
         animalId = UUID.randomUUID();
 
-
         selectedLand = Double.parseDouble(landString);
         selectedWater = Double.parseDouble(waterString);
         selectedAir = Double.parseDouble(airString);
     }
-// TODO: add notification when empty.
-//    private void checkFieldsAreComplete() {
-//        if (nameString.isEmpty() || landString.isEmpty() || waterString.isEmpty() || airString.isEmpty()) {
-//
-//        }
-//    }
 }

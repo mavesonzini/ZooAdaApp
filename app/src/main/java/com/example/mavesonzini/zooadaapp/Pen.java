@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.RecursiveTask;
 
 /**
  * Created by mavesonzini on 27/01/2018.
@@ -90,5 +89,4 @@ public class Pen implements Serializable {
         }
         return matchingPens;
     }
-
 }
