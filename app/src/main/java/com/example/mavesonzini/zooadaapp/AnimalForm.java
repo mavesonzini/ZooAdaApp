@@ -123,7 +123,7 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
                     waterEditText.setEnabled(false);
                     airEditText.setEnabled(false);
 
-//                    //set default values for animal
+                    //set default values for animal
                     landEditText.setText(itemValue.getLand());
                     waterEditText.setText(itemValue.getWater());
                     airEditText.setText(itemValue.getAir());
@@ -232,6 +232,7 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         zooInstance.addAnimal(newAnimal);
         zooInstance.increaseAnimalCount();
         zooInstance.decreaseAnimalCountInPen(selectedAssignedPen.getPenId());
+        zooInstance.addAnimalToPen(selectedAssignedPen.getPenId(), newAnimal.getAnimalId());
     }
 
     private void initialize() {
@@ -239,6 +240,8 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         landString = landEditText.getText().toString();
         waterString = waterEditText.getText().toString();
         airString = airEditText.getText().toString();
+        animalId = UUID.randomUUID();
+
 
         selectedLand = Double.parseDouble(landString);
         selectedWater = Double.parseDouble(waterString);

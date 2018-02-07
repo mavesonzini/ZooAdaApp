@@ -7,6 +7,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -18,6 +20,7 @@ public class PenDetails extends AppCompatActivity implements Serializable {
     private TextView volumeLabel;
     private TextView assignedToZookeeperLabel;
     private TextView penCapacityLabel;
+    private TextView animalListInPenLabel;
 
     private Button backToListButton;
 

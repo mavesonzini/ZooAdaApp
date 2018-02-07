@@ -8,7 +8,7 @@ import java.util.UUID;
  */
 
 public class Animal implements Serializable {
-    private static UUID animalId;
+    private UUID animalId;
     private AnimalType animalType;
     private double land;
     private double water;
@@ -61,7 +61,7 @@ public class Animal implements Serializable {
         return String.valueOf(isHostile);
     }
 
-    public static UUID getAnimalId() {
+    public UUID getAnimalId() {
         return animalId;
     }
 

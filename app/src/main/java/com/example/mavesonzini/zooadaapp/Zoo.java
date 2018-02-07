@@ -16,6 +16,8 @@ class Zoo implements Serializable {
     public ZooKeeper[] zooKeepers;
     private HashMap<UUID, Pen> idsToPens = new HashMap<>();
     private HashMap<UUID, Animal> idsToAnimals = new HashMap<>();
+    private HashMap<Pen, Animal> pensToAnimals = new HashMap<>();
+
     private int animalCount = 0;
     private int penCount = 0;
 
@@ -47,6 +49,10 @@ class Zoo implements Serializable {
         return idsToPens.get(penId);
     }
 
+    public Animal getAnimalById(UUID animalId) {
+        return idsToAnimals.get(animalId);
+    }
+
     public void addPen(Pen pen) {
         if (!getPens().contains(pen)) {
             idsToPens.put(pen.getPenId(), pen);
@@ -55,8 +61,7 @@ class Zoo implements Serializable {
 
     public void addAnimal(Animal animal) {
         if (!getAnimals().contains(animal)) {
-            UUID newUUID = UUID.randomUUID();
-            idsToAnimals.put(newUUID, animal);
+            idsToAnimals.put(animal.getAnimalId(), animal);
         }
     }
 
@@ -83,5 +88,11 @@ class Zoo implements Serializable {
             penCapacity = penCapacity - 1;
             pen.capacity = penCapacity;
         }
+    }
+
+    public void addAnimalToPen(UUID penId, UUID animalId){
+        Pen pen = getPenById(penId);
+        Animal animal = getAnimalById(animalId);
+        pensToAnimals.put(pen, animal);
     }
 }
