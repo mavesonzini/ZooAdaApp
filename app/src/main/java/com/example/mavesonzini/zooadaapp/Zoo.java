@@ -72,6 +72,7 @@ class Zoo implements Serializable {
     public int getNumberOfPens() {
         return penCount;
     }
+
     public void increaseAnimalCount() {
         animalCount = animalCount + 1;
     }

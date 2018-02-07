@@ -10,6 +10,8 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class PenDetails extends AppCompatActivity implements Serializable {
@@ -30,6 +32,11 @@ public class PenDetails extends AppCompatActivity implements Serializable {
     private String volume;
     private String zookeeperAssigned;
     private String capacity;
+    private String animalString = "";
+
+    private List<UUID> animalIdListFromPen = PensList.getItemFromSelectedPosition().getAnimalIdList();
+    private List<String> animalStringList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +49,7 @@ public class PenDetails extends AppCompatActivity implements Serializable {
         backToListButton = findViewById(R.id.back_to_list_button);
         assignedToZookeeperLabel = findViewById(R.id.zookeeper_assigned_display_label);
         penCapacityLabel = findViewById(R.id.pen_capacity_label);
+        animalListInPenLabel = findViewById(R.id.animals_in_pen_label);
 
         penTypeLabel.setText(getPenTypeFromSelectedRow());
         dryAreaLabel.setText(getDryAreaFromSelectedRow());
@@ -49,6 +57,7 @@ public class PenDetails extends AppCompatActivity implements Serializable {
         volumeLabel.setText(getVolumeFromSelectedRow());
         assignedToZookeeperLabel.setText(getZookeeperAssignedFromSelectedRow());
         penCapacityLabel.setText(getCapacityFromSelectedPen());
+        animalListInPenLabel.setText(getAnimalListFromPen());
 
         backToListButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -90,5 +99,23 @@ public class PenDetails extends AppCompatActivity implements Serializable {
         Pen selectedPen = zoo.getPenById(penId);
         capacity = selectedPen.getCapacity();
         return capacity;
+    }
+
+    public String getAnimalListFromPen() {
+        animalIdToAnimalStringList();
+        for (int i = 0; i < animalStringList.size(); i++) {
+
+            animalString = animalStringList.get(i).toString() + "\n" + animalString;
+        }
+
+        return animalString;
+    }
+
+    public List<String> animalIdToAnimalStringList() {
+        Zoo zoo = Zoo.getInstance();
+        for (int i = 0; i < animalIdListFromPen.size(); i ++) {
+            animalStringList.add(zoo.getAnimalById(animalIdListFromPen.get(i)).toString());
+        }
+        return animalStringList;
     }
 }

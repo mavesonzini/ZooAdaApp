@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class PensForm extends AppCompatActivity implements Serializable {
@@ -47,6 +49,7 @@ public class PensForm extends AppCompatActivity implements Serializable {
     private double volumeDouble;
     private Pen newPen;
     private UUID penId;
+    private List<UUID> animalIdList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,7 +170,7 @@ public class PensForm extends AppCompatActivity implements Serializable {
     }
 
     public void createPen() {
-        newPen = new Pen(penId, selectedPen, 10,dryAreaDouble, wetAreaDouble, volumeDouble, selectedZookeeper);
+        newPen = new Pen(penId, selectedPen, 10,dryAreaDouble, wetAreaDouble, volumeDouble, selectedZookeeper, animalIdList);
 
         Zoo zooInstance = Zoo.getInstance();
         zooInstance.addPen(newPen);

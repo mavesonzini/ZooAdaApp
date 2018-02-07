@@ -12,15 +12,17 @@ import java.util.concurrent.RecursiveTask;
 
 public class Pen implements Serializable {
     private UUID penId;
+    private UUID animalId;
     private PenType penType;
     public int capacity;
     private double dryArea;
     private double wetArea;
     private double volume;
     private ZooKeeper zookeeper;
+    private List<UUID> animalIdList;
 
 
-    public Pen(UUID penId, PenType penType, int capacity, double dryArea, double wetArea, double  volume, ZooKeeper zooKeeper) {
+    public Pen(UUID penId, PenType penType, int capacity, double dryArea, double wetArea, double  volume, ZooKeeper zooKeeper, List<UUID> animalIdList) {
         this.penId = penId;
         this.penType = penType;
         this.capacity = capacity;
@@ -28,13 +30,19 @@ public class Pen implements Serializable {
         this.wetArea = wetArea;
         this.volume = volume;
         this.zookeeper = zooKeeper;
+        this.animalIdList = animalIdList;
+
     }
 
     @Override
     public String toString() {
         return this.penType.toString();
     }
-    
+
+    public List<UUID> getAnimalIdList() {
+        return animalIdList;
+    }
+
     public String getDryArea() {
         return String.valueOf(dryArea);
     }
@@ -59,6 +67,16 @@ public class Pen implements Serializable {
         return penId;
     }
 
+    public void addAnimalsToAnimalIdListFromPenId(UUID penId, UUID animalId) {
+        Pen pen = zooInstance.getPenById(penId);
+        pen.animalIdList.add(animalId);
+    }
+
+    public List<UUID> getAnimalListForPen(UUID penId) {
+        Pen pen = zooInstance.getPenById(penId);
+        return pen.animalIdList;
+    }
+
     private static Zoo zooInstance = Zoo.getInstance();
 
     public static List<Pen> getMatchingPensForAnimal() {
@@ -72,4 +90,5 @@ public class Pen implements Serializable {
         }
         return matchingPens;
     }
+
 }
