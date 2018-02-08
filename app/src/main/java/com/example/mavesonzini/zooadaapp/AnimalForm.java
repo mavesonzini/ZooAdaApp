@@ -254,6 +254,8 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
           new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
               dialog.dismiss();
+              Intent intent = new Intent(AnimalForm.this, PensForm.class);
+              startActivity(intent);
             }
           });
       alertDialog.show();
