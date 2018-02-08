@@ -60,7 +60,8 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_form);
-      matchingPensList = Pen.getMatchingPensForAnimal();
+
+        matchingPensList = Pen.getMatchingPensForAnimal();
 
         animaltypeSpinner = findViewById(R.id.animal_type_spinner);
         landEditText = findViewById(R.id.land_peranimal_text_view);
@@ -103,13 +104,9 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         animaltypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                int itemPosition = position;
                 AnimalType itemValue = (AnimalType) animaltypeSpinner.getItemAtPosition(position);
                 animalTypeString = itemValue.toString();
                 selectedAnimalType = itemValue;
-                Toast.makeText(getApplicationContext(),
-                        "Position: " + itemPosition + " item selected: " + animalTypeString, Toast.LENGTH_LONG)
-                        .show();
 
                 if (itemValue.getAnimalTypeEnum() != AnimalTypeEnum.OTHER) {
                     //Hide name label and editText
@@ -162,12 +159,8 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         pettingSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                int itemPosition = position;
                 String itemValue = (String) pettingSpinner.getItemAtPosition(position);
                 selectedPettingOption = Boolean.valueOf(itemValue);
-                Toast.makeText(getApplicationContext(),
-                        "Position: " + itemPosition + " item selected: " + selectedPettingOption, Toast.LENGTH_LONG)
-                        .show();
             }
 
             @Override
@@ -179,12 +172,8 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         hostilitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                int itemPosition = position;
                 String itemValue = (String) hostilitySpinner.getItemAtPosition(position);
                 selectedHostileOption = Boolean.valueOf(itemValue);
-                Toast.makeText(getApplicationContext(),
-                        "Position: " + itemPosition + " item selected: " + selectedHostileOption, Toast.LENGTH_LONG)
-                        .show();
             }
 
             @Override
@@ -196,13 +185,9 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         penAssignedSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                int itemPosition = position;
                 Pen itemValue = (Pen) penAssignedSpinner.getItemAtPosition(position);
                 penAssignedString = itemValue.toString();
                 selectedAssignedPen = itemValue;
-                Toast.makeText(getApplicationContext(),
-                        "Position: " + itemPosition + " item selected: " + penAssignedString, Toast.LENGTH_LONG)
-                        .show();
             }
 
             @Override
@@ -221,7 +206,7 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         });
     }
 
-    private void createAnimal() {
+  private void createAnimal() {
         initialize();
         if (selectedAnimalType.getAnimalTypeEnum() == AnimalTypeEnum.OTHER) {
             newAnimal = new Animal(animalId, nameString, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPen, selectedPettingOption, selectedHostileOption);

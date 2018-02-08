@@ -16,7 +16,10 @@ public class PenType implements Serializable {
             this.penTypeName = penTypeName;
             this.responsibleZookeeper = responsibleZookeeper;
         }
-        public static PenType[] getAllPenTypes() {
+
+    public static PenType createNewPen = new PenType("Create a new pen!", null);
+
+    public static PenType[] getAllPenTypes() {
             PenType dryPen = new PenType("Dry Pen", "HARDIP");
             PenType aquarium =  new PenType("Aquarium", "ALEX");
             PenType partWaterPartDry = new PenType("Part water - part dry", "ALEX");
@@ -48,8 +51,8 @@ public class PenType implements Serializable {
             return penTypes[4];
         }
 
-        public String getResponsibleZookeeper() {
-            return responsibleZookeeper;
+        public static PenType getCreateNewPen() {
+            return createNewPen;
         }
 
     @Override

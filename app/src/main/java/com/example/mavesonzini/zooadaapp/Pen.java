@@ -20,6 +20,10 @@ public class Pen implements Serializable {
     private ZooKeeper zookeeper;
     private List<UUID> animalIdList;
 
+    private boolean hasEnoughLand = false;
+    private boolean hasEnoughWater = false;
+    private boolean hasEnoughAirSpace = false;
+
 
     public Pen(UUID penId, PenType penType, int capacity, double dryArea, double wetArea, double  volume, ZooKeeper zooKeeper, List<UUID> animalIdList) {
         this.penId = penId;
@@ -85,6 +89,9 @@ public class Pen implements Serializable {
             Pen pen = pens.get(i);
             if (pen.capacity >= 1) {
                 matchingPens.add(pen);
+            }
+            if (matchingPens.isEmpty()) {
+                matchingPens.add(new Pen(null, PenType.getCreateNewPen(), 0,0.0, 0.0, 0.0, null, null));
             }
         }
         return matchingPens;

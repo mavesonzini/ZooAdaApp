@@ -170,7 +170,7 @@ public class PensForm extends AppCompatActivity implements Serializable {
     }
 
     public void createPen() {
-        newPen = new Pen(penId, selectedPen, 10,dryAreaDouble, wetAreaDouble, volumeDouble, selectedZookeeper, animalIdList);
+        newPen = new Pen(penId, selectedPen, 5,dryAreaDouble, wetAreaDouble, volumeDouble, selectedZookeeper, animalIdList);
 
         Zoo zooInstance = Zoo.getInstance();
         zooInstance.addPen(newPen);
