@@ -1,6 +1,8 @@
 package com.example.mavesonzini.zooadaapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -11,7 +13,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -199,15 +200,19 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         createAnimalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAnimal();
+              initialize();
+              if (!isFormValid()){
+                showAlerts();
+              } else {
                 Intent intent = new Intent(AnimalForm.this, AnimalsList.class);
                 startActivity(intent);
+                createAnimal();
+              }
             }
         });
     }
 
   private void createAnimal() {
-        initialize();
         if (selectedAnimalType.getAnimalTypeEnum() == AnimalTypeEnum.OTHER) {
             newAnimal = new Animal(animalId, nameString, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPen, selectedPettingOption, selectedHostileOption);
         } else {
@@ -232,5 +237,25 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         selectedLand = Double.parseDouble(landString);
         selectedWater = Double.parseDouble(waterString);
         selectedAir = Double.parseDouble(airString);
+    }
+
+    private boolean isFormValid() {
+      boolean valid = true;
+      if (selectedAssignedPen.toString() == "Create a new pen!") {
+        valid = false;
+      }
+      return valid;
+    }
+  private void showAlerts() {
+      AlertDialog alertDialog = new AlertDialog.Builder(AnimalForm.this).create();
+      alertDialog.setTitle("NO AVAILABLE PEN");
+      alertDialog.setMessage("Please create a new pen for this animal!");
+      alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+          new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              dialog.dismiss();
+            }
+          });
+      alertDialog.show();
     }
 }
