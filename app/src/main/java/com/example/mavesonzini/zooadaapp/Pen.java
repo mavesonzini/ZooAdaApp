@@ -11,7 +11,6 @@ import java.util.UUID;
 
 public class Pen implements Serializable {
     private UUID penId;
-    private UUID animalId;
     private PenType penType;
     public int capacity;
     private double dryArea;
@@ -19,11 +18,6 @@ public class Pen implements Serializable {
     private double volume;
     private ZooKeeper zookeeper;
     private List<UUID> animalIdList;
-
-    private boolean hasEnoughLand = false;
-    private boolean hasEnoughWater = false;
-    private boolean hasEnoughAirSpace = false;
-
 
     public Pen(UUID penId, PenType penType, int capacity, double dryArea, double wetArea, double  volume, ZooKeeper zooKeeper, List<UUID> animalIdList) {
         this.penId = penId;

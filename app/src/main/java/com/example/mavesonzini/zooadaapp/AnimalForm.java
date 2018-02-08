@@ -222,7 +222,7 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         Zoo zooInstance = Zoo.getInstance();
         zooInstance.addAnimal(newAnimal);
         zooInstance.increaseAnimalCount();
-        zooInstance.decreaseAnimalCountInPen(selectedAssignedPen.getPenId());
+        zooInstance.decreasePenCapacity(selectedAssignedPen.getPenId());
         zooInstance.addAnimalToPen(selectedAssignedPen.getPenId(), newAnimal.getAnimalId());
         selectedAssignedPen.addAnimalsToAnimalIdListFromPenId(selectedAssignedPen.getPenId(), animalId);
     }

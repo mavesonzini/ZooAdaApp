@@ -30,7 +30,11 @@ public class Animal implements Serializable {
         this.isHostile = isHostile;
     }
 
-    public String toString() {
+  public Animal() {
+
+  }
+
+  public String toString() {
         return this.animalType.toString();
     }
 

@@ -81,7 +81,7 @@ class Zoo implements Serializable {
         penCount = penCount + 1;
     }
 
-    public void decreaseAnimalCountInPen(UUID penId) {
+    public void decreasePenCapacity(UUID penId) {
         Pen pen = getPenById(penId);
         System.out.print(pen);
         int penCapacity = pen.capacity;
