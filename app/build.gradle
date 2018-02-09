@@ -18,6 +18,8 @@ android {
     }
 }
 
+
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -26,4 +28,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    // Custom dependencies
+    //compile group: 'com.google.guava', name: 'guava', version: '23.6-android'
+    androidTestCompile 'com.google.code.findbugs:jsr305:3.0.1'
+    annotationProcessor 'org.projectlombok:lombok:1.16.20'
+    compile 'org.openweathermap.java-api:api-core:1.2'
+    compile 'org.openweathermap.java-api:api-query:1.2'
+    compile 'org.openweathermap.java-api:api-model:1.2'
+    compile('com.google.guava:guava:23.6-android') {
+        exclude group: 'com.google.code.findbugs'
+    }
 }

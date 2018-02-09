@@ -1,19 +1,19 @@
 package com.example.mavesonzini.zooadaapp;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 /**
  * Created by mavesonzini on 27/01/2018.
  */
 
-public class PenType implements Serializable {
+public class PenType extends Pen implements Serializable {
         private String penTypeName;
         private static PenType[] penTypes = PenType.getAllPenTypes();
         private String responsibleZookeeper;
 
     public PenType(String penTypeName, String responsibleZookeeper) {
-            this.penTypeName = penTypeName;
+      super();
+      this.penTypeName = penTypeName;
             this.responsibleZookeeper = responsibleZookeeper;
         }
 

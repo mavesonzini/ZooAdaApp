@@ -76,8 +76,8 @@ public class ZooController extends AppCompatActivity implements Serializable {
         weatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent internt = new Intent(ZooController.this, WeatherController.class);
-                startActivity(internt);
+                Intent intent = new Intent(ZooController.this, Weather.class);
+                startActivity(intent);
             }
         });
 

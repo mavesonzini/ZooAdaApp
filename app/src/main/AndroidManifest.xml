@@ -2,40 +2,41 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mavesonzini.zooadaapp">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".ZooMain"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ZooController">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ZooKeepersList" />
-        <activity android:name=".ZooKeeperDetails" />
+        <activity android:name=".ZooKeepersList"/>
+        <activity android:name=".ZooKeeperDetails"/>
         <activity
-            android:name=".PensList"
             android:label="@string/title_activity_pens_list"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".PensForm" />
-        <activity android:name=".PenDetails" />
-        <activity android:name=".AnimalController" />
+            android:name=".PensList"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PensForm"/>
+        <activity android:name=".PenDetails"/>
         <activity
-            android:name=".AnimalsList"
             android:label="@string/title_activity_animals_list"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AnimalForm" />
-        <activity android:name=".AnimalDetails" />
-        <activity android:name=".Weather"></activity>
+            android:name=".AnimalsList"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".AnimalForm"/>
+        <activity android:name=".AnimalDetails"/>
+        <activity android:name=".Weather">
+        </activity>
     </application>
 
 </manifest>

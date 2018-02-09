@@ -31,7 +31,10 @@ public class Pen implements Serializable {
 
     }
 
-    @Override
+  public Pen() {
+  }
+
+  @Override
     public String toString() {
         return this.penType.toString();
     }
