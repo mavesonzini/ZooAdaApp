@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toEndOf="@+id/zookeeper_label"
-        app:layout_constraintTop_toBottomOf="@+id/wet_area_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/airvolume_text_edit" />
 
     <Spinner
         android:id="@+id/pen_type_spinner"
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/pen_type_spinner" />
 
     <AutoCompleteTextView
-        android:id="@+id/wet_area_editText"
+        android:id="@+id/airvolume_text_edit"
         android:layout_width="100dp"
         android:layout_height="48dp"
         android:layout_marginEnd="33dp"
@@ -50,10 +50,10 @@
         app:layout_constraintEnd_toStartOf="@+id/textView8"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/volume_label"
-        app:layout_constraintTop_toBottomOf="@+id/volume_area_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/water_area_editText" />
 
     <AutoCompleteTextView
-        android:id="@+id/volume_area_editText"
+        android:id="@+id/water_area_editText"
         android:layout_width="100dp"
         android:layout_height="47dp"
         android:layout_marginTop="20dp"

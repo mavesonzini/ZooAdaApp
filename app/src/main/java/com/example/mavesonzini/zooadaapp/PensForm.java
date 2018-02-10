@@ -65,8 +65,8 @@ public class PensForm extends AppCompatActivity implements Serializable {
         zookeeperSpinner = findViewById(R.id.zookeeper_spinner);
 
         dryAreaEditText = findViewById(R.id.dry_area_editText);
-        wetAreaEditText = findViewById(R.id.wet_area_editText);
-        volumeEditText = findViewById(R.id.volume_area_editText);
+        wetAreaEditText = findViewById(R.id.water_area_editText);
+        volumeEditText = findViewById(R.id.airvolume_text_edit);
 
         createButton = findViewById(R.id.create_pen_button);
 
@@ -111,18 +111,27 @@ public class PensForm extends AppCompatActivity implements Serializable {
                 if (penTypeString == "Dry Pen") {
                     zookeeperSpinner.setEnabled(false);
                     zookeeperSpinner.setSelection(0);
+                    wetAreaEditText.setEnabled(false);
+                    volumeEditText.setEnabled(false);
                 } else if (penTypeString == "Aquarium") {
                     zookeeperSpinner.setEnabled(false);
                     zookeeperSpinner.setSelection(1);
+                    dryAreaEditText.setEnabled(false);
+                    volumeEditText.setEnabled(false);
                 } else if (penTypeString == "Part wet - part dry") {
                     zookeeperSpinner.setEnabled(false);
                     zookeeperSpinner.setSelection(1);
+                    volumeEditText.setEnabled(false);
                 } else if (penTypeString == "Aviary") {
                     zookeeperSpinner.setEnabled(false);
                     zookeeperSpinner.setSelection(2);
+                    wetAreaEditText.setEnabled(false);
+                    dryAreaEditText.setEnabled(false);
                 } else if (penTypeString == "Petting pen") {
                     zookeeperSpinner.setEnabled(false);
                     zookeeperSpinner.setSelection(3);
+                    wetAreaEditText.setEnabled(false);
+                    volumeEditText.setEnabled(false);
                 }
             }
 
