@@ -16,7 +16,6 @@ public class ZooController extends AppCompatActivity implements Serializable {
     Button zookeepersButton;
     Button pensButton;
     Button animalsButton;
-    Button weatherButton;
 
     int animalCount;
     int penCount;
@@ -33,7 +32,6 @@ public class ZooController extends AppCompatActivity implements Serializable {
         animalCountTextView = findViewById(R.id.animal_count_textView);
         zookeepersButton = findViewById(R.id.zookeepers_button);
         animalsButton = findViewById(R.id.animals_button);
-        weatherButton = findViewById(R.id.to_weather_button);
         pensButton = findViewById(R.id.pens_button);
 
 
@@ -72,14 +70,6 @@ public class ZooController extends AppCompatActivity implements Serializable {
         } else {
             animalCountTextView.setText(animalCount + " animals living here! and " + penCount + "pens created" );
         }
-
-        weatherButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ZooController.this, Weather.class);
-                startActivity(intent);
-            }
-        });
 
     }
 

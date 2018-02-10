@@ -1,13 +1,12 @@
 package com.example.mavesonzini.zooadaapp;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+/**
+ * Created by mavesonzini on 10/02/2018.
+ */
 
-public class Weather extends AppCompatActivity {
+public class Weather implements Runnable {
+    @Override
+    public void run() {
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_weather);
-  }
+    }
 }
