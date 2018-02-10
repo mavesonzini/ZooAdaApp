@@ -189,6 +189,10 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
                 Pen itemValue = (Pen) penAssignedSpinner.getItemAtPosition(position);
                 penAssignedString = itemValue.toString();
                 selectedAssignedPen = itemValue;
+                if (penAssignedString == "Create a new pen!") {
+                    Intent intent = new Intent(AnimalForm.this, PensForm.class);
+                    startActivity(intent);
+                }
             }
 
             @Override
