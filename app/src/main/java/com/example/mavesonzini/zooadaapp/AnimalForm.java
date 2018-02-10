@@ -108,7 +108,6 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
                 AnimalType itemValue = (AnimalType) animaltypeSpinner.getItemAtPosition(position);
                 animalTypeString = itemValue.toString();
                 selectedAnimalType = itemValue;
-
                 if (itemValue.getAnimalTypeEnum() != AnimalTypeEnum.OTHER) {
                     //Hide name label and editText
                     nameLabel.setVisibility(View.GONE);

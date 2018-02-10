@@ -16,7 +16,7 @@ public class Pen implements Serializable {
     private double dryArea;
     private double wetArea;
     private double volume;
-    private ZooKeeper zookeeper;
+    private ZooKeeper zookeeper = ZooKeeper.getInstance();
     private List<UUID> animalIdList;
 
     public Pen(UUID penId, PenType penType, int capacity, double dryArea, double wetArea, double  volume, ZooKeeper zooKeeper, List<UUID> animalIdList) {
@@ -55,8 +55,12 @@ public class Pen implements Serializable {
         return String.valueOf(volume);
     }
 
-    public String getZookeeper() {
+    public String getZookeeperString() {
         return this.zookeeper.toString();
+    }
+
+    public ZooKeeper getZookeeper() {
+        return this.zookeeper;
     }
 
     public String getCapacity() {
@@ -70,11 +74,6 @@ public class Pen implements Serializable {
     public void addAnimalsToAnimalIdListFromPenId(UUID penId, UUID animalId) {
         Pen pen = zooInstance.getPenById(penId);
         pen.animalIdList.add(animalId);
-    }
-
-    public List<UUID> getAnimalListForPen(UUID penId) {
-        Pen pen = zooInstance.getPenById(penId);
-        return pen.animalIdList;
     }
 
     private static Zoo zooInstance = Zoo.getInstance();

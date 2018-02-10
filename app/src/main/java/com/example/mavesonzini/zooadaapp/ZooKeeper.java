@@ -7,8 +7,14 @@ import java.io.Serializable;
  */
 
 public class ZooKeeper implements Serializable {
+    private static ZooKeeper ourInstance = new ZooKeeper();
     private String name;
     private String[] penTypes;
+    public int penCount;
+
+    static ZooKeeper getInstance() {
+        return ourInstance;
+    }
 
     public static ZooKeeper[] getAllZookeepers() {
         String[] hardipPenTypes = {"DRY PEN"};
@@ -29,7 +35,10 @@ public class ZooKeeper implements Serializable {
     public ZooKeeper(String name, String[] penTypes){
         this.name = name;
         this.penTypes = penTypes;
+        this.penCount = 0;
     }
+
+    public ZooKeeper() {}
 
     @Override
     public String toString() {

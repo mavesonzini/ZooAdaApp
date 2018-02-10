@@ -68,9 +68,8 @@ public class ZooController extends AppCompatActivity implements Serializable {
         if (animalCount == 0 && penCount == 0) {
             animalCountTextView.setText("No animals or pens at all. Create some!");
         } else {
-            animalCountTextView.setText(animalCount + " animals living here! and " + penCount + "pens created" );
+            animalCountTextView.setText(animalCount + " animals living here! and " + penCount + " pens created" );
         }
-
     }
 
   @Override
@@ -82,11 +81,10 @@ public class ZooController extends AppCompatActivity implements Serializable {
       public void execute(@NonNull Runnable runnable) {
       }
     };
-
     executor.execute(new Runnable() {
       @Override
       public void run() {
-        fileManager.writeZooToFile();
+        fileManager.getZooFromFile();
       }
     });
   }

@@ -137,20 +137,14 @@ public class PensForm extends AppCompatActivity implements Serializable {
         zookeeperSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                int itemPosition = position;
                 ZooKeeper itemValue = (ZooKeeper) zookeeperSpinner.getItemAtPosition(position);
                 zookeeperString = itemValue.toString();
                 selectedZookeeper = itemValue;
-                Toast.makeText(getApplicationContext(),
-                        "Position: " + itemPosition + " item selected: " + zookeeperString, Toast.LENGTH_LONG)
-                        .show();
+                selectedZookeeper.penCount++;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(getApplicationContext(),
-                        "Zookeeper unselected", Toast.LENGTH_LONG)
-                        .show();
             }
         });
 

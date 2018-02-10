@@ -35,8 +35,6 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".AnimalForm"/>
         <activity android:name=".AnimalDetails"/>
-        <activity android:name=".WeatherController">
-        </activity>
     </application>
 
 </manifest>

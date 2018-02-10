@@ -89,7 +89,7 @@ public class PenDetails extends AppCompatActivity implements Serializable {
     }
 
     public String getZookeeperAssignedFromSelectedRow() {
-        zookeeperAssigned = PensList.getItemFromSelectedPosition().getZookeeper();
+        zookeeperAssigned = PensList.getItemFromSelectedPosition().getZookeeperString();
         return zookeeperAssigned;
     }
 

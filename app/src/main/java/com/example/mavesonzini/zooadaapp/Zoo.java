@@ -57,6 +57,8 @@ class Zoo implements Serializable {
         if (!getPens().contains(pen)) {
             idsToPens.put(pen.getPenId(), pen);
         }
+        ZooKeeper zooKeeper = pen.getZookeeper();
+        zooKeeper.penCount ++;
     }
 
     public void addAnimal(Animal animal) {
