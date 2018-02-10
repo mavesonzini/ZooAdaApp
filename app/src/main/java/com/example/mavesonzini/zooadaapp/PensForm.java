@@ -94,7 +94,7 @@ public class PensForm extends AppCompatActivity implements Serializable {
 
         //set Text to labels
         animalTypeLabel.setText("This pen has no animals assigned to it!");
-        spaceNumberLabel.setText("This pen is EMPTY! 10 spaces left");
+        spaceNumberLabel.setText("This pen is EMPTY! 5 spaces left");
 
 
 

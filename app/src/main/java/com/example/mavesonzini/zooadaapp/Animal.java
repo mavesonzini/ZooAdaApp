@@ -42,9 +42,14 @@ public class Animal implements Serializable {
         return String.valueOf(water);
     }
 
-    public String getLand() {
+    public String getLandString() {
         return String.valueOf(land);
     }
+
+    public double getLand() {
+        return land;
+    }
+
     public String getAir() {
         return String.valueOf(air);
     }

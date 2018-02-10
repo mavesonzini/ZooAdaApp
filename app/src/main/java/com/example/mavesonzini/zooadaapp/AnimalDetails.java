@@ -73,7 +73,7 @@ public class AnimalDetails extends AppCompatActivity implements Serializable {
     }
 
     public String getAreaFromSelectedRow() {
-        land =  AnimalsList.getItemFromSelectedPosition().getLand();
+        land =  AnimalsList.getItemFromSelectedPosition().getLandString();
         return land;
     }
 

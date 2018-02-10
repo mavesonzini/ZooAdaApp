@@ -62,8 +62,6 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_form);
 
-        matchingPensList = Pen.getMatchingPensForAnimal();
-
         animaltypeSpinner = findViewById(R.id.animal_type_spinner);
         landEditText = findViewById(R.id.land_peranimal_text_view);
         waterEditText = findViewById(R.id.water_peranimal_text_view2);
@@ -85,22 +83,20 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         ArrayAdapter<String> booleanArrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, android.R.id.text1, boolOptionsArray);
 
-        ArrayAdapter<Pen> matchingPenArrayAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_dropdown_item, android.R.id.text1, matchingPensList);
 
         animalTypeArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         penTypeArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         booleanArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        matchingPenArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         animaltypeSpinner.setAdapter(animalTypeArrayAdapter);
         pettingSpinner.setAdapter(booleanArrayAdapter);
         hostilitySpinner.setAdapter(booleanArrayAdapter);
-        penAssignedSpinner.setAdapter(matchingPenArrayAdapter);
 
         landEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
         waterEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
         airEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+        penAssignedSpinner.setEnabled(false);
 
         animaltypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -110,12 +106,13 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
                 selectedAnimalType = itemValue;
 
                 if (itemValue.getAnimalTypeEnum() != AnimalTypeEnum.OTHER) {
+                    penAssignedSpinner.setEnabled(true);
+
                     //Hide name label and editText
                     nameLabel.setVisibility(View.GONE);
                     nameEditText.setVisibility(View.GONE);
 
                     //disable all spinners
-                    pettingSpinner.setEnabled(false);
                     pettingSpinner.setEnabled(false);
                     hostilitySpinner.setEnabled(false);
                     landEditText.setEnabled(false);
@@ -123,7 +120,7 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
                     airEditText.setEnabled(false);
 
                     //set default values for animal
-                    landEditText.setText(itemValue.getLand());
+                    landEditText.setText(itemValue.getLandString());
                     waterEditText.setText(itemValue.getWater());
                     airEditText.setText(itemValue.getAir());
 
@@ -212,7 +209,22 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         });
     }
 
-  private void createAnimal() {
+    private  void updateViewFor(AnimalType animalType) {
+
+        if (animalType.getAnimalTypeEnum() != AnimalTypeEnum.OTHER) {
+            matchingPensList = Pen.getMatchingPensFor(animalType);
+        } else {
+            // getMatchingPensFor(area, volume, penType)
+        }
+
+        ArrayAdapter<Pen> matchingPenArrayAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_dropdown_item, android.R.id.text1, matchingPensList);
+
+        matchingPenArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        penAssignedSpinner.setAdapter(matchingPenArrayAdapter);
+    }
+
+    private void createAnimal() {
         if (selectedAnimalType.getAnimalTypeEnum() == AnimalTypeEnum.OTHER) {
             newAnimal = new Animal(animalId, nameString, selectedAnimalType, selectedLand, selectedWater, selectedAir, selectedAssignedPen, selectedPettingOption, selectedHostileOption);
         } else {

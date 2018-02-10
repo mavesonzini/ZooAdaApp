@@ -34,7 +34,6 @@ public class Pen implements Serializable {
         this.volume = volume;
         this.zookeeper = zooKeeper;
         this.animalIdList = animalIdList;
-
     }
 
     @Override
@@ -48,6 +47,15 @@ public class Pen implements Serializable {
 
     public String getDryArea() {
         return String.valueOf(dryArea);
+    }
+
+    public double getFreeDryArea() {
+        double freeDryArea = dryArea;
+        for (int i = 0; i < animalIdList.size(); i ++) {
+            Animal animal = Zoo.getInstance().getAnimalById(animalIdList.get(i));
+            freeDryArea -= animal.getLand();
+        }
+        return freeDryArea;
     }
 
     public String getWetArea() {
@@ -82,17 +90,17 @@ public class Pen implements Serializable {
 
     private static Zoo zooInstance = Zoo.getInstance();
 
-    public static List<Pen> getMatchingPensForAnimal() {
+    public static List<Pen> getMatchingPensFor(AnimalType animalType) {
         List<Pen> pens = zooInstance.getPens();
         List<Pen> matchingPens = new ArrayList<>();
         for (int i = 0; i < pens.size(); i ++) {
             Pen pen = pens.get(i);
-            if (pen.capacity >= 1) {
+            if (pen.penType == animalType.getPenType() && animalType.land <= pen.getFreeDryArea()) {
                 matchingPens.add(pen);
             }
-            if (matchingPens.isEmpty()) {
-                matchingPens.add(new Pen(null, PenType.getCreateNewPen(), 0,0.0, 0.0, 0.0, null, null));
-            }
+        }
+        if (matchingPens.isEmpty()) {
+            matchingPens.add(new Pen(null, PenType.getCreateNewPen(), 0,0.0, 0.0, 0.0, null, null));
         }
         return matchingPens;
     }

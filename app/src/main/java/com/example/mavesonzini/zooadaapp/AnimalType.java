@@ -12,7 +12,7 @@ public class AnimalType implements Serializable {
     private String animalTypeName;
     private String name;
     private PenType penType;
-    private double land;
+    double land;
     private double water;
     private double air;
     private PenType assignedPen;
@@ -72,11 +72,11 @@ public class AnimalType implements Serializable {
         return name;
     }
 
-    public String getPenType() {
-        return String.valueOf(penType);
+    public PenType getPenType() {
+        return penType;
     }
 
-    public String getLand() {
+    public String getLandString() {
         return String.valueOf(land);
     }
 
@@ -120,6 +120,4 @@ enum AnimalTypeEnum {
     HIPPO,
     CAT,
     OTHER;
-
-
 }
