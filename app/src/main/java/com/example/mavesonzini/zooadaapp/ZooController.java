@@ -17,6 +17,9 @@ public class ZooController extends AppCompatActivity implements Serializable {
     Button pensButton;
     Button animalsButton;
 
+    TextView temperatureLabel;
+    TextView weatherDetailLabel;
+
     int animalCount;
     int penCount;
 
