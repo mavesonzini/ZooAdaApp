@@ -21,7 +21,8 @@ public class AnimalType implements Serializable {
     private AnimalTypeEnum type;
     private int animalSize;
 
-    public AnimalType(String animalTypeName, @Nullable PenType penType, double land, double water, double air, @Nullable PenType assignedPen, boolean isHostile, boolean isPet, AnimalTypeEnum type, int animalSize){
+    public AnimalType(String animalTypeName, @Nullable PenType penType, double land, double water, double air,
+                      @Nullable PenType assignedPen, boolean isHostile, boolean isPet, AnimalTypeEnum type, int animalSize){
         this.animalTypeName = animalTypeName;
         this.penType = penType;
         this.dryArea = land;
@@ -34,7 +35,8 @@ public class AnimalType implements Serializable {
         this.animalSize = animalSize;
     }
 
-    public AnimalType(String animalTypeName, String name, @Nullable PenType penType, double land, double water, double air, @Nullable PenType assignedPen, boolean isHostile, boolean isPet, AnimalTypeEnum type){
+    public AnimalType(String animalTypeName, String name, @Nullable PenType penType, double land, double water, double air,
+                      @Nullable PenType assignedPen, boolean isHostile, boolean isPet, AnimalTypeEnum type){
         this.animalTypeName = animalTypeName;
         this.penType = penType;
         this.dryArea = land;
@@ -48,15 +50,24 @@ public class AnimalType implements Serializable {
     }
 
     public static AnimalType[] getAllAnimalTypes() {
-        AnimalType sloth = new AnimalType("Sloth", PenType.getDryPen(), 3.0, 0.0, 0.0,null, false, false, AnimalTypeEnum.SLOTH, 2);
-        AnimalType penguin = new AnimalType("Penguin", PenType.getPartWaterPartDry(), 2.0, 4.0, 0.0,null, false, false , AnimalTypeEnum.PENGUIN, 1);
-        AnimalType goat = new AnimalType("Goat", PenType.getDryPen(), 3.0, 0.0,0.0,null, false, true, AnimalTypeEnum.GOAT, 2);
-        AnimalType dog = new AnimalType("Dog", PenType.getPetting(), 3.5, 0.0, 0.0, null, false, true, AnimalTypeEnum.DOG, 2);
-        AnimalType owl = new AnimalType("Owl", PenType.getAviary(), 0.0, 00.0,20, null, false, false, AnimalTypeEnum.OWL, 1);
-        AnimalType dolphin = new AnimalType("Dolphin", PenType.getAquarium(), 0.0, 40.0,0, null, false, false, AnimalTypeEnum.DOLPHIN, 3);
-        AnimalType hippo = new AnimalType("Hippo", PenType.getPartWaterPartDry(), 10.0, 20.0,0, null, false, false, AnimalTypeEnum.HIPPO, 3);
-        AnimalType cat = new AnimalType("Cat", PenType.getPetting(), 4.0, 0.0, 0,null, false, true, AnimalTypeEnum.CAT, 1);
-        AnimalType other = new AnimalType("Other...", "",  null, 0.0, 0.0, 0,null, false, false, AnimalTypeEnum.OTHER);
+        AnimalType sloth = new AnimalType("Sloth", PenType.getDryPen(), 3.0, 0.0, 0.0,null,
+                false, false, AnimalTypeEnum.SLOTH, 2);
+        AnimalType penguin = new AnimalType("Penguin", PenType.getPartWaterPartDry(), 2.0, 4.0, 0.0,null,
+                false, false , AnimalTypeEnum.PENGUIN, 1);
+        AnimalType goat = new AnimalType("Goat", PenType.getDryPen(), 3.0, 0.0,0.0,null,
+                false, true, AnimalTypeEnum.GOAT, 2);
+        AnimalType dog = new AnimalType("Dog", PenType.getPetting(), 3.5, 0.0, 0.0, null,
+                false, true, AnimalTypeEnum.DOG, 2);
+        AnimalType owl = new AnimalType("Owl", PenType.getAviary(), 0.0, 00.0,20, null,
+                false, false, AnimalTypeEnum.OWL, 1);
+        AnimalType dolphin = new AnimalType("Dolphin", PenType.getAquarium(), 0.0, 40.0,0, null,
+                false, false, AnimalTypeEnum.DOLPHIN, 3);
+        AnimalType hippo = new AnimalType("Hippo", PenType.getPartWaterPartDry(), 10.0, 20.0,0, null,
+                false, false, AnimalTypeEnum.HIPPO, 3);
+        AnimalType cat = new AnimalType("Cat", PenType.getPetting(), 4.0, 0.0, 0,null,
+                false, true, AnimalTypeEnum.CAT, 1);
+        AnimalType other = new AnimalType("Other...", "",  null, 0.0, 0.0, 0,null,
+                false, false, AnimalTypeEnum.OTHER);
 
         AnimalType[] animalTypes = {sloth, penguin, goat, dog, owl, dolphin, hippo, cat, other};
 
