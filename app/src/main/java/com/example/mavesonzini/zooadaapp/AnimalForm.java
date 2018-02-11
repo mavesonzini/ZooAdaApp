@@ -5,12 +5,17 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -107,6 +112,7 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
 
                 if (itemValue.getAnimalTypeEnum() != AnimalTypeEnum.OTHER) {
                     penAssignedSpinner.setEnabled(true);
+                    updateViewFor(itemValue, itemValue.dryArea, itemValue.water, itemValue.air);
 
                     //Hide name label and editText
                     nameLabel.setVisibility(View.GONE);
@@ -121,14 +127,17 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
 
                     //set default values for animal
                     landEditText.setText(itemValue.getLandString());
-                    waterEditText.setText(itemValue.getWater());
-                    airEditText.setText(itemValue.getAir());
+                    waterEditText.setText(itemValue.getWaterString());
+                    airEditText.setText(itemValue.getAirString());
 
                     int isPet = Arrays.asList(boolOptionsArray).indexOf(itemValue.getIsPet());
                     int isHostileIndex = Arrays.asList(boolOptionsArray).indexOf(itemValue.getIsHostile());
                     pettingSpinner.setSelection(isPet);
                     hostilitySpinner.setSelection(isHostileIndex);
                 } else {
+                    updateViewFor(itemValue, itemValue.dryArea, itemValue.water, itemValue.air);
+                    penAssignedSpinner.setEnabled(false);
+
                     //show name label and editText
                     nameLabel.setVisibility(View.VISIBLE);
                     nameEditText.setVisibility(View.VISIBLE);
@@ -209,12 +218,12 @@ public class AnimalForm extends AppCompatActivity implements Serializable {
         });
     }
 
-    private  void updateViewFor(AnimalType animalType) {
+    private  void updateViewFor(AnimalType animalType, double dryArea, double wetArea, double airArea) {
 
         if (animalType.getAnimalTypeEnum() != AnimalTypeEnum.OTHER) {
             matchingPensList = Pen.getMatchingPensFor(animalType);
         } else {
-            // getMatchingPensFor(area, volume, penType)
+            matchingPensList = Pen.getMatchingPensFor(dryArea, wetArea, airArea);
         }
 
         ArrayAdapter<Pen> matchingPenArrayAdapter = new ArrayAdapter<>(this,

@@ -31,24 +31,28 @@ public class PenType implements Serializable {
             return penTypes;
         }
 
-        public static PenType getDryPen() {
+        public static PenType getEmptyPen() {
             return penTypes[0];
         }
 
-        public static PenType getAquarium() {
-        return penTypes[1];
+        public static PenType getDryPen() {
+            return penTypes[1];
         }
 
-        public static PenType getPartWaterPartDry() {
+        public static PenType getAquarium() {
         return penTypes[2];
         }
 
+        public static PenType getPartWaterPartDry() {
+        return penTypes[3];
+        }
+
         public static PenType getAviary() {
-            return penTypes[3];
+            return penTypes[4];
         }
 
         public static PenType getPetting() {
-            return penTypes[4];
+            return penTypes[5];
         }
 
         public static PenType getCreateNewPen() {

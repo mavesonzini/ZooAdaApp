@@ -1,5 +1,7 @@
 package com.example.mavesonzini.zooadaapp;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +21,6 @@ public class Pen implements Serializable {
     private double volume;
     private ZooKeeper zookeeper;
     private List<UUID> animalIdList;
-
-    private boolean hasEnoughLand = false;
-    private boolean hasEnoughWater = false;
-    private boolean hasEnoughAirSpace = false;
 
 
     public Pen(UUID penId, PenType penType, int capacity, double dryArea, double wetArea, double  volume, ZooKeeper zooKeeper, List<UUID> animalIdList) {
@@ -53,7 +51,7 @@ public class Pen implements Serializable {
         double freeDryArea = dryArea;
         for (int i = 0; i < animalIdList.size(); i ++) {
             Animal animal = Zoo.getInstance().getAnimalById(animalIdList.get(i));
-            freeDryArea -= animal.getLand();
+            freeDryArea -= animal.land;
         }
         return freeDryArea;
     }
@@ -62,8 +60,26 @@ public class Pen implements Serializable {
         return String.valueOf(wetArea);
     }
 
+    public double getFreeWetArea() {
+        double freeWetArea = wetArea;
+        for (int i = 0; i < animalIdList.size(); i ++) {
+            Animal animal = Zoo.getInstance().getAnimalById(animalIdList.get(i));
+            freeWetArea -= animal.water;
+        }
+        return freeWetArea;
+    }
+
     public String getVolume() {
         return String.valueOf(volume);
+    }
+
+    public double getFreeAirArea() {
+        double freeAirArea = volume;
+        for (int i = 0; i < animalIdList.size(); i ++) {
+            Animal animal = Zoo.getInstance().getAnimalById(animalIdList.get(i));
+            freeAirArea -= animal.air;
+        }
+        return freeAirArea;
     }
 
     public String getZookeeper() {
@@ -95,7 +111,23 @@ public class Pen implements Serializable {
         List<Pen> matchingPens = new ArrayList<>();
         for (int i = 0; i < pens.size(); i ++) {
             Pen pen = pens.get(i);
-            if (pen.penType == animalType.getPenType() && animalType.land <= pen.getFreeDryArea()) {
+            if ((pen.penType.toString() == animalType.getPenType().toString()) && (animalType.dryArea <= pen.getFreeDryArea()) &&
+                    (animalType.water <= pen.getFreeWetArea()) && (animalType.air <= pen.getFreeAirArea())) {
+                matchingPens.add(pen);
+            }
+        }
+        if (matchingPens.isEmpty()) {
+            matchingPens.add(new Pen(null, PenType.getCreateNewPen(), 0,0.0, 0.0, 0.0, null, null));
+        }
+        return matchingPens;
+    }
+
+    public static List<Pen> getMatchingPensFor(double dryArea, double wetArea, double air) {
+        List<Pen> pens = zooInstance.getPens();
+        List<Pen> matchingPens = new ArrayList<>();
+        for (int i = 0; i < pens.size(); i ++) {
+            Pen pen = pens.get(i);
+            if (dryArea <= pen.getFreeDryArea() && wetArea <= pen.getFreeWetArea() && air <= pen.getFreeAirArea()) {
                 matchingPens.add(pen);
             }
         }

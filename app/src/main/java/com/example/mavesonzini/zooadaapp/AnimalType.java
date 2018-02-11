@@ -12,9 +12,9 @@ public class AnimalType implements Serializable {
     private String animalTypeName;
     private String name;
     private PenType penType;
-    double land;
-    private double water;
-    private double air;
+    double dryArea;
+    double water;
+    double air;
     private PenType assignedPen;
     private boolean isHostile;
     private boolean isPet;
@@ -24,7 +24,7 @@ public class AnimalType implements Serializable {
     public AnimalType(String animalTypeName, @Nullable PenType penType, double land, double water, double air, @Nullable PenType assignedPen, boolean isHostile, boolean isPet, AnimalTypeEnum type, int animalSize){
         this.animalTypeName = animalTypeName;
         this.penType = penType;
-        this.land = land;
+        this.dryArea = land;
         this.water = water;
         this.air = air;
         this.assignedPen = assignedPen;
@@ -37,7 +37,7 @@ public class AnimalType implements Serializable {
     public AnimalType(String animalTypeName, String name, @Nullable PenType penType, double land, double water, double air, @Nullable PenType assignedPen, boolean isHostile, boolean isPet, AnimalTypeEnum type){
         this.animalTypeName = animalTypeName;
         this.penType = penType;
-        this.land = land;
+        this.dryArea = land;
         this.water = water;
         this.air = air;
         this.assignedPen = assignedPen;
@@ -77,14 +77,14 @@ public class AnimalType implements Serializable {
     }
 
     public String getLandString() {
-        return String.valueOf(land);
+        return String.valueOf(dryArea);
     }
 
-    public String getWater() {
+    public String getWaterString() {
         return String.valueOf(water);
     }
 
-    public String getAir() {
+    public String getAirString() {
         return String.valueOf(air);
     }
 

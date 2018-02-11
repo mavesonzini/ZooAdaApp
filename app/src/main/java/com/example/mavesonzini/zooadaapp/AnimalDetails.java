@@ -78,12 +78,12 @@ public class AnimalDetails extends AppCompatActivity implements Serializable {
     }
 
     public String getVolumeFromSelectedRow() {
-        water = AnimalsList.getItemFromSelectedPosition().getWater();
+        water = AnimalsList.getItemFromSelectedPosition().getWaterString();
         return water;
     }
 
     public String getAirFromSelectedRow() {
-        air = AnimalsList.getItemFromSelectedPosition().getAir();
+        air = AnimalsList.getItemFromSelectedPosition().getAirString();
         return air;
     }
 

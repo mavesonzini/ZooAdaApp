@@ -10,9 +10,9 @@ import java.util.UUID;
 public class Animal implements Serializable {
     private UUID animalId;
     private AnimalType animalType;
-    private double land;
-    private double water;
-    private double air;
+    double land;
+    double water;
+    double air;
     private Pen penAssigned;
     private boolean isPet;
     private boolean isHostile;
@@ -38,7 +38,7 @@ public class Animal implements Serializable {
         return this.penAssigned.toString();
     }
 
-    public String getWater() {
+    public String getWaterString() {
         return String.valueOf(water);
     }
 
@@ -46,11 +46,7 @@ public class Animal implements Serializable {
         return String.valueOf(land);
     }
 
-    public double getLand() {
-        return land;
-    }
-
-    public String getAir() {
+    public String getAirString() {
         return String.valueOf(air);
     }
 
